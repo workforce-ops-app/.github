@@ -61,6 +61,10 @@ jobs:
           ref: ${{ inputs.shared-ref }}
           path: .shared
           persist-credentials: false
+      # checkout can only write inside the workspace; move the shared scripts out
+      # so formatters and linters check only the calling repository's files.
+      - name: Move shared scripts out of the workspace
+        run: mv .shared "$RUNNER_TEMP/shared"
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
@@ -69,7 +73,7 @@ jobs:
         with:
           node-version: "22"
       - name: Run ci.toml operations
-        run: python .shared/scripts/ci_runner.py --config ci.toml --out ci-results/checks.json
+        run: python "$RUNNER_TEMP/shared/scripts/ci_runner.py" --config ci.toml --out ci-results/checks.json
         env:
           PR_LABELS: ${{ github.event_name == 'pull_request' && toJSON(github.event.pull_request.labels.*.name) || '[]' }}
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

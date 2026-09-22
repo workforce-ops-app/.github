@@ -23,7 +23,7 @@ Create three **public** repositories with no license: `.github`, `workforce-ops-
    - Allow rebase merging: **off**
    - Always suggest updating pull request branches: **on**
    - **Automatically delete head branches: on**
-3. Create the `production` branch from `main`.
+3. Application repositories only: create the `production` branch from `main`. The `.github` repository has no `production` branch, because other repositories use its workflows and hooks straight from `main` (and from tags).
 4. **Settings → Code security**: turn on
    - Dependency graph, Dependabot alerts, Dependabot security updates
    - Secret scanning and **push protection**

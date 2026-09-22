@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -36,10 +37,12 @@ from pathlib import Path
 NON_BYPASSABLE = {"pr-policy", "secret-scan"}
 IN_CI = os.environ.get("GITHUB_ACTIONS") == "true"
 MAX_SUMMARY = 90
+# Terminal color and cursor codes some tools print even when not attached to a terminal.
+ANSI_RE = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")
 
 
 def _summary_from_output(output: str) -> str:
-    for line in reversed(output.splitlines()):
+    for line in reversed(ANSI_RE.sub("", output).splitlines()):
         line = line.strip().strip("=").strip()
         if line:
             return line[:MAX_SUMMARY]

@@ -21,3 +21,10 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0013](0013-documentation-structure.md) | Four documentation categories, docs in the same PR | Accepted |
 | [0014](0014-markdown-issue-templates.md) | Markdown issue templates instead of issue forms | Accepted |
 | [0015](0015-public-repositories.md) | Public repositories with private vulnerability reporting | Accepted |
+| [0016](0016-tenant-isolation.md) | Keep companies separate in one shared database | Accepted |
+| [0017](0017-scoped-role-assignments.md) | Attach scope to each role assignment | Accepted |
+| [0018](0018-audit-log-chains.md) | Per-company audit chains sealed with HMAC-SHA256 | Accepted |
+| [0019](0019-uuidv7-ids.md) | UUIDv7 primary keys | Accepted |
+| [0020](0020-status-over-deletion.md) | Change status instead of deleting records | Accepted |
+| [0021](0021-time-handling.md) | Store moments in UTC, schedule in the workplace's time zone | Accepted |
+| [0022](0022-sqlalchemy-and-alembic.md) | SQLAlchemy 2.0 and Alembic for database access | Accepted |

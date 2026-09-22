@@ -7,7 +7,7 @@
 All repositories are public for now, with no license. Anyone can read the code, but security problems are reported and fixed privately before they are made public.
 
 ## Context
-Public repositories get organization rulesets, CodeQL code scanning, secret scanning with push protection, and shared `.github` defaults on GitHub's free plan. The project is also a security showcase, which makes public code a feature, as long as unfixed vulnerabilities are not published.
+Public repositories get repository rulesets (organization-wide rulesets would need a paid plan), CodeQL code scanning, secret scanning with push protection, and shared `.github` defaults on GitHub's free plan. The project is also a security showcase, which makes public code a feature, as long as unfixed vulnerabilities are not published.
 
 ## Decision
 - All three repositories are public. No license for now, so default copyright applies: the code can be read but not reused.

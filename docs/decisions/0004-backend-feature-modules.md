@@ -34,7 +34,7 @@ Tests mirror this under `tests/{unit,integration,security}/`.
 ## Consequences
 - Security review has clear places to look: every service call goes through `authorize()`, every query through a repository.
 - Shared layers must offer registration points (see [0012](0012-extensibility-patterns.md)) so modules never need to edit them.
-- Details of the data model, authorization, and API conventions are still to be decided and will get their own records.
+- The data model is recorded in [0016](0016-tenant-isolation.md)–[0022](0022-sqlalchemy-and-alembic.md); authorization details and API conventions will get their own records.
 
 ## Alternatives considered
 - **Layered structure:** familiar, but causes conflicts and scatters each feature across the codebase.

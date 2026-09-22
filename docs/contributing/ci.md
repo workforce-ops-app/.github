@@ -50,7 +50,7 @@ Each repository lists its operations in `ci.toml` at its root. An operation swit
 
 - `.github/workflows/ci.yml` in each repository calls the shared `reusable-ci.yml` from the `.github` repository.
 - **The one required status check is `ci / overall`.** It fails if any operation failed.
-- `ci-comment.yml` posts the report as a PR comment after the run finishes. It runs separately so it can post even on Dependabot PRs, and it checks that the report belongs to the PR's current commit.
+- `ci-comment.yml` posts the report as a PR comment after the run finishes. It runs separately so it can post even on Dependabot PRs, and it checks that the report belongs to the PR's current commit. Cancelled runs (replaced by a newer run, for example when labels are added) never post.
 - `deploy.yml` runs on pushes to `production`. Until a hosting target exists it builds the image and reports a dry run. Setting the repository variable `DEPLOY_ENABLED` to `true` switches to the real deployment step once one is written.
 
 ## Adding or changing a check

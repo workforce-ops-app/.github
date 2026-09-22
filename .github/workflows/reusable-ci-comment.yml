@@ -17,7 +17,9 @@ permissions:
 jobs:
   comment:
     name: post report
-    if: github.event.workflow_run.event == 'pull_request'
+    # A cancelled run was superseded by a newer one; posting its report could
+    # overwrite the newer run's comment.
+    if: github.event.workflow_run.event == 'pull_request' && github.event.workflow_run.conclusion != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

@@ -1,0 +1,130 @@
+# Reusable CI: pr-policy + every operation in the calling repo's ci.toml, then one
+# combined report. Callers name their job `ci`, so the required status check is
+# "ci / overall".
+name: ci (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      stack:
+        description: "Main toolchain of the calling repo: python or node"
+        type: string
+        required: true
+      shared-ref:
+        description: "Ref of the .github repo to load scripts from"
+        type: string
+        default: main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  policy:
+    name: pr-policy
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          ref: ${{ inputs.shared-ref }}
+          path: .shared
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Check PR against workflow rules
+        run: python .shared/scripts/pr_policy.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: ci-results-policy
+          path: ci-results/
+          if-no-files-found: ignore
+
+  checks:
+    name: checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # secret-scan reads full history
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          ref: ${{ inputs.shared-ref }}
+          path: .shared
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - if: inputs.stack == 'node'
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "22"
+      - name: Run ci.toml operations
+        run: python .shared/scripts/ci_runner.py --config ci.toml --out ci-results/checks.json
+        env:
+          PR_LABELS: ${{ github.event_name == 'pull_request' && toJSON(github.event.pull_request.labels.*.name) || '[]' }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: ci-results-checks
+          path: ci-results/
+          if-no-files-found: ignore
+
+  overall:
+    name: overall
+    needs: [policy, checks]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          ref: ${{ inputs.shared-ref }}
+          path: .shared
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: ci-results-*
+          merge-multiple: true
+          path: ci-results
+      - name: Record jobs that ended without results
+        env:
+          EVENT: ${{ github.event_name }}
+          CHECKS_RESULT: ${{ needs.checks.result }}
+          POLICY_RESULT: ${{ needs.policy.result }}
+        run: |
+          mkdir -p ci-results ci-report
+          if [ ! -f ci-results/checks.json ]; then
+            echo "[{\"name\":\"checks\",\"status\":\"fail\",\"summary\":\"job ended before recording results ($CHECKS_RESULT)\",\"time\":null}]" > ci-results/checks.json
+          fi
+          if [ "$EVENT" = "pull_request" ] && [ ! -f ci-results/policy.json ]; then
+            echo "[{\"name\":\"pr-policy\",\"status\":\"fail\",\"summary\":\"job ended before recording results ($POLICY_RESULT)\",\"time\":null}]" > ci-results/policy.json
+          fi
+      - name: Note the pull request for the comment workflow
+        if: github.event_name == 'pull_request'
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "{\"number\": $PR_NUMBER}" > ci-report/pr.json
+      - name: Build report
+        run: python .shared/scripts/ci_report.py --results ci-results --out ci-report/report.md --stack ${{ inputs.stack }}
+        env:
+          REPORT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: ci-report
+          path: ci-report/

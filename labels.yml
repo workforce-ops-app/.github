@@ -1,0 +1,51 @@
+# Labels shared by every repository. Apply with:  python scripts/sync_labels.py
+# Add new area:* labels here as modules are added; the script never deletes labels.
+
+# Type (matches the title/branch type)
+- {name: "type:feat", color: "1f883d", description: "New functionality"}
+- {name: "type:fix", color: "d1242f", description: "Something is broken"}
+- {name: "type:security", color: "8250df", description: "Security control or hardening"}
+- {name: "type:refactor", color: "0969da", description: "Restructuring with no behavior change"}
+- {name: "type:test", color: "0969da", description: "Tests only"}
+- {name: "type:docs", color: "0969da", description: "Documentation only"}
+- {name: "type:chore", color: "6e7781", description: "Tooling, dependencies, maintenance"}
+
+# Area (module or concern)
+- {name: "area:auth", color: "c5def5", description: "Login, sessions, passwords, CSRF"}
+- {name: "area:authz", color: "c5def5", description: "Roles, permissions, scopes"}
+- {name: "area:tenancy", color: "c5def5", description: "Company isolation"}
+- {name: "area:audit", color: "c5def5", description: "Audit log"}
+- {name: "area:detection", color: "c5def5", description: "Suspicious-activity detection"}
+- {name: "area:schedules", color: "c5def5", description: "Shifts and schedules"}
+- {name: "area:time-off", color: "c5def5", description: "Time-off requests"}
+- {name: "area:coverage", color: "c5def5", description: "Shift coverage and swaps"}
+- {name: "area:tasks", color: "c5def5", description: "Shift tasks"}
+- {name: "area:announcements", color: "c5def5", description: "Announcements"}
+- {name: "area:notifications", color: "c5def5", description: "Notifications"}
+- {name: "area:org", color: "c5def5", description: "Companies, departments, teams, users"}
+- {name: "area:ui", color: "c5def5", description: "Shared frontend UI"}
+- {name: "area:ci", color: "c5def5", description: "CI/CD and repository automation"}
+- {name: "area:deps", color: "c5def5", description: "Dependencies"}
+- {name: "area:docs", color: "c5def5", description: "Documentation"}
+
+# Priority
+- {name: "priority:high", color: "b60205", description: "Do next"}
+- {name: "priority:medium", color: "fbca04", description: "Normal"}
+- {name: "priority:low", color: "c2e0c6", description: "When there is time"}
+
+# Security tracking
+- {name: "security", color: "8250df", description: "Touches a security control"}
+- {name: "security-finding", color: "5319e7", description: "Result of a security audit (feeds the findings log)"}
+
+# Process
+- {name: "post-merge-review", color: "e99695", description: "Merged outside normal review; needs a follow-up look"}
+- {name: "docs:not-needed", color: "ededed", description: "Code change that needs no documentation update"}
+- {name: "bypass:audit", color: "ffa657", description: "Bypass the audit check (needs justification + teammate approval)"}
+- {name: "bypass:format-check", color: "ffa657", description: "Bypass format-check (needs justification + teammate approval)"}
+- {name: "bypass:lint", color: "ffa657", description: "Bypass lint (needs justification + teammate approval)"}
+- {name: "bypass:typecheck", color: "ffa657", description: "Bypass typecheck (needs justification + teammate approval)"}
+- {name: "bypass:unit-test", color: "ffa657", description: "Bypass unit-test (needs justification + teammate approval)"}
+- {name: "bypass:migration-check", color: "ffa657", description: "Bypass migration-check (needs justification + teammate approval)"}
+- {name: "bypass:security-test", color: "ffa657", description: "Bypass security-test (needs justification + teammate approval)"}
+- {name: "bypass:build", color: "ffa657", description: "Bypass build (needs justification + teammate approval)"}
+- {name: "bypass:integration-test", color: "ffa657", description: "Bypass integration-test (needs justification + teammate approval)"}

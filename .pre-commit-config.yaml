@@ -1,0 +1,48 @@
+# Local checks for this repository. Install once per clone:
+#   python -m pip install pre-commit -r requirements-dev.txt
+#   pre-commit install
+default_install_hook_types: [pre-commit, commit-msg, pre-push]
+default_stages: [pre-commit]
+
+repos:
+  # This repository's own hooks, run from the working tree.
+  - repo: local
+    hooks:
+      - id: commit-message
+        name: commit message format
+        entry: python -c "import sys; sys.path.insert(0, 'hooks'); from workforce_ops_hooks import cli; sys.exit(cli.commit_message())"
+        language: system
+        stages: [commit-msg]
+        always_run: true
+      - id: branch-name
+        name: branch name and protected-branch push check
+        entry: python -c "import sys; sys.path.insert(0, 'hooks'); from workforce_ops_hooks import cli; sys.exit(cli.branch_name())"
+        language: system
+        stages: [pre-push]
+        always_run: true
+        pass_filenames: false
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: detect-private-key
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.8
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format

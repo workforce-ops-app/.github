@@ -1,0 +1,42 @@
+# Reusable: deployment placeholder for pushes to `production`. Until a hosting
+# target exists and the repository variable DEPLOY_ENABLED is 'true', it builds
+# the image and reports a dry run.
+name: deploy (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      image-name:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build image
+        if: hashFiles('Dockerfile') != ''
+        run: docker build -t "${{ inputs.image-name }}:${{ github.sha }}" .
+      - name: Dry run
+        if: vars.DEPLOY_ENABLED != 'true'
+        run: |
+          {
+            echo "### deploy ⏭️ dry-run — no target configured"
+            echo ""
+            echo "Would deploy \`${{ inputs.image-name }}:${GITHUB_SHA::7}\` from \`production\`."
+            echo "Set the repository variable \`DEPLOY_ENABLED\` to \`true\` once a deployment step is added."
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Deploy
+        if: vars.DEPLOY_ENABLED == 'true'
+        run: |
+          echo "DEPLOY_ENABLED is true but no deployment step has been written yet." >&2
+          exit 1

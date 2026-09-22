@@ -1,0 +1,40 @@
+# Reusable: rebuilds review/integration = main + all open, ready-for-review PRs,
+# then dispatches the repo's `ci` workflow on the combined branch. Only git merges
+# run here; no code from the PRs is executed in this privileged job.
+name: review-integration (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      shared-ref:
+        type: string
+        default: main
+
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+
+jobs:
+  rebuild:
+    name: rebuild review/integration
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          ref: ${{ inputs.shared-ref }}
+          path: .shared
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Rebuild and push
+        run: python .shared/scripts/review_integration.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

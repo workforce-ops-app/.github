@@ -1,0 +1,40 @@
+# Reusable: after a merge, opens a follow-up issue if the PR used a bypass label
+# or had no approving review (the emergency path).
+name: post-merge-review (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      review-team:
+        description: "Team to mention on follow-up issues, as org/team-slug"
+        type: string
+        default: ""
+      shared-ref:
+        type: string
+        default: main
+
+permissions:
+  issues: write
+  pull-requests: read
+
+jobs:
+  follow-up:
+    name: check merge
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository_owner }}/.github
+          ref: ${{ inputs.shared-ref }}
+          path: .shared
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.13"
+      - name: Open follow-up issue if needed
+        run: python .shared/scripts/post_merge_review.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REVIEW_TEAM: ${{ inputs.review-team }}

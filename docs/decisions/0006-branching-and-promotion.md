@@ -12,7 +12,7 @@ Two developers need a simple flow with a clear history, and every change should 
 ## Decision
 - Topic branches `<type>/<issue#>-<slug>` → PR into `main`, **squash merge** (one commit per PR, message = PR title and description).
 - `main` → PR into `production`, **merge commit** only. Squashing a promotion would rewrite its commits, so `production` would drift from `main` and every later promotion would show old changes again.
-- Direct pushes and force-pushes to `main` and `production` are blocked by organization rulesets.
+- Direct pushes and force-pushes to `main` and `production` are blocked by rulesets in each repository.
 - Hotfixes use a normal `fix/*` branch into `main`, then a promotion.
 - Local branches are cleaned up at the start of each task; remote branches are deleted automatically on merge.
 

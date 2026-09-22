@@ -18,7 +18,7 @@ Create three **public** repositories with no license: `.github`, `workforce-ops-
 
 1. Push the initial scaffold straight to `main` (the only direct push).
 2. **Settings → General → Pull Requests**
-   - Allow merge commits: **on** (used only for `main` → `production`)
+   - Allow merge commits: **on** in the application repositories (used only for `main` → `production`); **off** in `.github`
    - Allow squash merging: **on**, default message **Pull request title and description**
    - Allow rebase merging: **off**
    - Always suggest updating pull request branches: **on**
@@ -32,11 +32,11 @@ Create three **public** repositories with no license: `.github`, `workforce-ops-
 5. **Settings → Secrets and variables → Actions → Variables**: add `DEPLOY_ENABLED` = `false` (application repositories).
 6. **Settings → Environments**: `production` is created on the first deploy run; no protection rules are needed yet.
 
-## 3. Rulesets (organization level)
+## 3. Rulesets (per repository)
 
-**Organization Settings → Repository → Rulesets.** Target all three repositories.
+Organization-wide rulesets need the paid GitHub Team plan, so each repository gets its own copies: **Settings → Rules → Rulesets**.
 
-**`main`**: target branch `main`
+**`main`** (every repository): target branch `main`
 - Restrict deletions; block force pushes
 - Require a pull request before merging
   - Required approvals: **1**
@@ -48,12 +48,15 @@ Create three **public** repositories with no license: `.github`, `workforce-ops-
 - Require status checks to pass: **`ci / overall`**, and require branches to be up to date
 - Bypass list: **Organization admins, mode "For pull requests only"** (the emergency path; it is logged)
 
-**`production`**: target branch `production`
-- Same as `main`, except allowed merge methods: **Merge** only
+**`production`** (application repositories): target branch `production`
+- Same as `main`, except allowed merge methods: **Merge** only. Squashing or rebasing a promotion would give `production` commits that `main` does not have, and every later promotion would show old changes again.
+
+**`release tags`** (`.github` only): target tags `v*`
+- Restrict updates and deletions; block force pushes. Other repositories pin their hooks to these tags. Organization admins may bypass.
 
 `review/*` branches have **no** ruleset: the automation force-pushes `review/integration`.
 
-**`.github` tags**: in the `.github` repository, a tag ruleset on `v*` that restricts updates and deletions, because other repositories pin hooks to these tags.
+> **While only one maintainer is active,** the approval settings (required approvals, Code Owners review, most-recent-push approval) are relaxed to 0/off, because nobody can approve their own pull request. Raise them to the values above as soon as the second maintainer has joined.
 
 ## 4. Shared pieces
 

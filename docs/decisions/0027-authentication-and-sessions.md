@@ -12,7 +12,11 @@ Session hijacking and CSRF are course topics, and credential protection is a sec
 ## Decision
 - **Passwords:** minimum 15, allow at least 64 (spaces and all printable characters), no truncation, no composition or rotation rules; common-password blocklist (core); online leaked-password check (stretch); Argon2id at about 0.5 s.
 - **Sessions:** server-side; `__Host-session` cookie with `Secure; HttpOnly; SameSite=Strict; Path=/`; new ID at sign-in and on privilege or password change; password change signs out other devices.
-- **Session timeouts: pending.** Option A: 1 h idle / 24 h maximum for everyone. Option B: the same for employees and managers, 30 min / 12 h for owners and administrators.
+- **Session timeouts: pending.** A session ends at whichever limit comes first:
+  - **Idle timeout:** time allowed with no activity; every action restarts it. Protects computers left signed in.
+  - **Maximum session length:** time since sign-in, however active the user is. Limits how long a stolen or forgotten session stays useful.
+
+  Option A: 1 h idle / 24 h maximum for everyone. Option B: the same for employees and managers, 30 min idle / 12 h maximum for owners and administrators.
 - **CSRF:** per-session token in `X-CSRF-Token`, plus SameSite and an Origin check.
 - **Lockouts:** 5 failures → 15 min, 10 → 30 min, 15+ → 1 h (maximum); reset after success or 24 h; admin unlock (audited); alerts on repeats; 20 sign-in attempts per minute per address; 300 requests per minute per session.
 - **Onboarding:** companies created by platform staff; admins create accounts and get a one-time setup link (48 h, single use); resets use the same mechanism; links stored as hashes; email delivery next tier (low priority).

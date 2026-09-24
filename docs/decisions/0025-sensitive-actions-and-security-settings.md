@@ -16,8 +16,8 @@ The proposal asks for protections "based on the sensitivity of the action rather
 
 | Setting | Platform default | Companies may set |
 |---|---|---|
-| Idle sign-out | per [0027](0027-authentication-and-sessions.md) | shorter, not below 5 min |
-| Maximum session | per [0027](0027-authentication-and-sessions.md) | shorter, not below 1 h |
+| Idle sign-out (no activity) | per [0027](0027-authentication-and-sessions.md) | shorter, not below 5 min |
+| Maximum session (time since sign-in, even if active) | per [0027](0027-authentication-and-sessions.md) | shorter, not below 1 h |
 | Failed attempts before lock | 5 | fewer, not below 3 |
 | Lock duration | 15 min → 30 min → 1 h | longer first steps, never over the 1 h maximum |
 | Minimum password length | 15 | longer, up to 64 |

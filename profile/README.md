@@ -8,4 +8,4 @@ A secure, multi-company web application for employee scheduling, time-off reques
 | [workforce-ops-frontend](https://github.com/workforce-ops-app/workforce-ops-frontend) | HTML, CSS, and JavaScript user interface |
 | [.github](https://github.com/workforce-ops-app/.github) | Shared templates, CI, contributor guide, and decision records |
 
-**Getting involved:** start with the [contributor guide](https://github.com/workforce-ops-app/.github/tree/main/docs/contributing). **Security issues:** see the [security policy](https://github.com/workforce-ops-app/.github/blob/main/SECURITY.md).
+**About the project:** see the [project overview](https://github.com/workforce-ops-app/.github/tree/main/docs/project), including the courses it serves and the design review. **Getting involved:** start with the [contributor guide](https://github.com/workforce-ops-app/.github/tree/main/docs/contributing). **Security issues:** see the [security policy](https://github.com/workforce-ops-app/.github/blob/main/SECURITY.md).

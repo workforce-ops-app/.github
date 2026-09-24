@@ -24,7 +24,7 @@ Two people build both sides of every feature. Consistent conventions prevent eve
 | 422 | invalid input |
 | 429 | too many requests |
 
-- Cursor pagination (default 50, max 200), plain filters, allow-listed sorting.
+- **Long lists come a page at a time** (default 50, max 200). Each page includes a **cursor**, a bookmark to the last item returned, used to fetch the next page. Unlike page numbers, cursors never skip or repeat items when data changes between requests (our IDs are time-ordered). Filtering with plain parameters; sorting only on fields each list allows.
 
 Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 

@@ -32,7 +32,7 @@ Each team member submits their own copy of joint deliverables. Late work loses 1
 
 ## Scope by stage
 
-The features planned for each demo are recorded in the design review: [feature tiers](design-review/02-feature-tiers.md).
+The features planned for each demo are recorded in decision [0023](../decisions/0023-feature-tiers-and-audit-schedule.md).
 
 | Stage | Target |
 |---|---|
@@ -55,6 +55,6 @@ The features planned for each demo are recorded in the design review: [feature t
 | [workforce-ops-frontend](https://github.com/workforce-ops-app/workforce-ops-frontend) | HTML, CSS, and JavaScript frontend |
 | `workforce-ops-research` (planned) | datasets, analysis scripts, and results for the report: the replication package |
 
-## Design review
+## Design decisions
 
-The questions the team worked through before building, their answers, and the resulting design are in the [design review](design-review/README.md).
+The project's design decisions and their reasons are in the [decision records](../decisions/README.md). The discussion that led to them is kept in the [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17) issue.

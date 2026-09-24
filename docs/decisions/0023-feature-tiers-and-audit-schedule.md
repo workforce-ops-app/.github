@@ -16,7 +16,7 @@ The web course grades two live demos (midterm and final weeks); the security cou
 - Next-tier work may start early if core is finished.
 - **Audits:** threat model before coding → backend audit before the midterm → frontend audit once connected → internal-user then external-attacker audits in the second half.
 
-The full list is in the [design review](../project/design-review/02-feature-tiers.md).
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - Every demo shows a complete, secure slice rather than many unfinished features.

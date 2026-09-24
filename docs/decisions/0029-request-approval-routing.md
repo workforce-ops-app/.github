@@ -17,7 +17,7 @@ The proposal routes requests to "the appropriate manager based on the employee's
 - **No self-review:** nobody reviews their own request; a manager's own requests go to their managers or administrators.
 - **Re-check at approval** for coverage and swaps: eligibility is checked again at the moment of approval.
 
-Details: [design review 6](../project/design-review/06-feature-details.md#who-approves-requests).
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - Security tests cover self-approval and approval from outside scope.

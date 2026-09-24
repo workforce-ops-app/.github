@@ -13,10 +13,10 @@ The web course grades live demos in midterm and final weeks. There is no hosting
 - **Demo data only**; a seed script creates at least two companies with several roles.
 - **Laptop demos** with Docker Compose; hosting is decided later ([0023](0023-feature-tiers-and-audit-schedule.md) lists it as stretch unless needed earlier).
 - **Phones and computers**, WCAG 2.2 AA, current Chrome/Edge/Firefox/Safari.
-- **Phone access (pending):** local HTTPS (preferred), a temporary tunnel, or the browser's phone view, decided before the midterm.
+- **Phone access (pending):** the `__Host-` session cookie requires HTTPS, so a phone reaching the laptop over Wi-Fi needs one of: local HTTPS with a tool such as mkcert (preferred; nothing exposed to the internet), a temporary tunnel such as Cloudflare Tunnel (easy, but briefly public), or the browser's phone view (no setup, not a real phone). Decided before the midterm.
 - **Logs:** structured JSON, IDs/actions/errors only, no personal details, kept 30 days.
 
-Details: [design review 8](../project/design-review/08-building-and-running.md).
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - Security features (audit viewer, lockouts, company separation) can be demonstrated live without privacy concerns.

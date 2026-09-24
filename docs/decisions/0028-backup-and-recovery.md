@@ -17,7 +17,7 @@ Backups are encrypted, kept off the server where an attacker can't delete them, 
 - **Repositories:** periodic mirror plus export of issues, PRs, reviews, and the board. **Storage location pending** (teammates' machines or a dedicated machine).
 - **Timing:** next tier; hosting-dependent parts wait for a hosting decision.
 
-Details: [design review 5](../project/design-review/05-backup-and-recovery.md).
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - Drill results feed the report's evaluation and give a strong demo.

@@ -20,7 +20,7 @@ The security course grades a research report with methodology, findings, and thr
 - **Research questions:** RQ2 split into published prevalence and our own case-study findings.
 - **Artifacts** go to the public `workforce-ops-research` repository as a replication package.
 
-Details: [design review 7](../project/design-review/07-security-study.md) and the [report plan](../project/report-plan.md).
+Research report details: the [report plan](../project/report-plan.md). Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - The audits produce a steady stream of issues and fixes, visible in the repositories for grading and peer evaluation.

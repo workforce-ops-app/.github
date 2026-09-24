@@ -17,7 +17,7 @@ The proposal requires role-based access with scopes ([0017](0017-scoped-role-ass
 - **Check:** `authorize(user, permission, target)`, deny by default; passes when an assignment grants the permission and its scope covers the target; `_own` only for the user's own records; modules register resolvers; lists use a scope filter that becomes a database condition.
 - **Data:** `roles` gains a `rank` column.
 
-Details: [design review 3](../project/design-review/03-authorization.md).
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - Escalation rules become concrete security tests (e.g. "an administrator cannot add a permission they lack to a role").

@@ -12,7 +12,21 @@ The proposal asks for protections "based on the sensitivity of the action rather
 ## Decision
 - **Core:** password re-entry for ownership transfer, admin-level changes, role permission changes, and security setting changes; a confirmation showing the count for schedule changes of **10+ shifts**.
 - **Next:** a **48-hour** cancellable wait for ownership transfer; a second approval for removing an administrator or changing admin-level permissions, and for bulk schedule changes above a company-set limit; notifications to owners, admins, and affected people.
-- **Company security settings:** every setting has a platform default and limit; companies may only move settings in the stricter direction, within the limits listed in [design review 3](../project/design-review/03-authorization.md#company-security-settings-stricter-only). Changes require password re-entry and notify owners.
+- **Company security settings:** every setting has a platform default and limit; companies may only move settings in the stricter direction, within these limits. Changes require password re-entry and notify owners.
+
+| Setting | Platform default | Companies may set |
+|---|---|---|
+| Idle sign-out | per [0027](0027-authentication-and-sessions.md) | shorter, not below 5 min |
+| Maximum session | per [0027](0027-authentication-and-sessions.md) | shorter, not below 1 h |
+| Failed attempts before lock | 5 | fewer, not below 3 |
+| Lock duration | 15 min → 30 min → 1 h | longer first steps, never over the 1 h maximum |
+| Minimum password length | 15 | longer, up to 64 |
+| Setup/reset link validity | 48 h | shorter, not below 1 h |
+| Ownership transfer wait | 48 h | longer, up to 7 days |
+| Second approval for bulk schedule changes | 10+ shifts | a lower number, not below 2 |
+| Actions requiring password re-entry | platform list | add actions, never remove |
+
+Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 
 ## Consequences
 - The lockout maximum of 1 hour cannot be exceeded even by a stricter company, so lockouts cannot be turned into a denial-of-service tool.

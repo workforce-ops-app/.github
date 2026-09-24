@@ -28,7 +28,7 @@ RQ2 was refined from the proposal's wording, because the application alone canno
 | Introduction | problem, motivation, the three research questions and why we expect what we expect | security proposal |
 | Background | multi-tenant SaaS, RBAC with scopes, the web attacks covered in the course | course material |
 | Related work | secure development and testing practice | textbooks and references below; published breach data |
-| Methodology | how the application was designed, audited, and measured: threat model, ASVS Level 2 audits, tools, cross-attacking, detection study design, **how test data was selected** | threat model; design review; decision records |
+| Methodology | how the application was designed, audited, and measured: threat model, ASVS Level 2 audits, tools, cross-attacking, detection study design, **how test data was selected** | threat model; decision records; design review sign-off (issue #17) |
 | Evaluation / findings | results per research question | findings log; detection study results; CI reports; restore drill times |
 | Threats to validity | selection of test data, pattern tuning, lab (not production) environment, small team, out-of-scope network attacks, design choices such as the password policy | detection study notes; decision records |
 | Discussion | what the results mean, limits of each claim | |

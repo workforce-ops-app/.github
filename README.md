@@ -13,6 +13,7 @@
 | `hooks/`, `.pre-commit-hooks.yaml` | Git hooks (commit message, branch name) used by every repository via pre-commit |
 | `labels.yml` | Shared labels, applied with `python scripts/sync_labels.py` |
 | `docs/contributing/` | How we work: workflow, naming, CI, reviews, dependencies, documentation |
+| `docs/project/` | Project overview and research report plan |
 | `docs/decisions/` | Decision records: what we decided and why |
 | `docs/templates/` | Starting points for feature docs, decision records, user guides, runbooks |
 | `profile/README.md` | The organization's public landing page |

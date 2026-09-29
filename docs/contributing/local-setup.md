@@ -9,7 +9,7 @@
 | Git | recent | version control |
 | Python | 3.13 | backend, CI runner, git hooks |
 | Node.js | 22 LTS | frontend tooling only (formatting, linting, tests) |
-| Docker Desktop | recent | MySQL, image builds, integration tests, secret scanning |
+| Docker Desktop | recent | MySQL 8.4 (on port 3307, so it runs next to XAMPP's database, which stays for class labs), image builds, integration tests, secret scanning |
 | pre-commit | latest (`python -m pip install pre-commit`) | local git hooks |
 | GitHub CLI (`gh`) | recent | issues, PRs, branch cleanup |
 

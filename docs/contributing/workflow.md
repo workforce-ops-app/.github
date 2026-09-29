@@ -38,6 +38,8 @@ For each branch name in that list that still exists locally (and is not protecte
 
 Basing work on a logged issue is strongly encouraged. Use the matching template ([issues and PRs](issues-and-prs.md)). If the work spans both application repositories, file one issue in each and link them.
 
+Most work is already planned as slices listed in a tracker issue; the pinned **Roadmap** issue links to the tracker for the current phase ([slices and trackers](issues-and-prs.md#slices-and-tracker-issues)). Pick the next open slice whose dependencies have merged.
+
 ### Project board
 
 All issues from every repository are tracked on the organization's project board, with the columns **To do → In progress → In review → Done**.

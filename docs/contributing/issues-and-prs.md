@@ -52,6 +52,25 @@ Sections, in order:
 
 Promotion PRs (`main` → `production`) need only a `## Summary` listing the PRs included.
 
+## Slices and tracker issues
+
+- **A slice** is one issue that becomes one pull request: one topic, small enough to review in one sitting, and at most one database migration.
+- **A tracker issue** groups the slices of a larger piece of work, such as a phase or a feature. It lists each slice as a checkbox with a link, says in which order they go and what depends on what, and is closed by hand once its last slice merges. Nobody works on a tracker directly, and no pull request closes one.
+- **Design before code:** the first slice of a feature is its design page (the backend feature page, plus a short frontend page for its screens). Code slices start once that page has merged.
+- **The overall plan** (phases, what each phase must prove before the next starts, and each phase's tracker) is the pinned **Roadmap** issue in this repository.
+
+## Closing issues from a pull request
+
+In *Related issues*:
+
+```
+Closes #14                                   ← this PR finishes the issue; merging closes it
+Closes workforce-ops-app/workforce-ops-backend#3   ← same, in another repository
+Refs #22                                     ← related but not finished: a tracker, the design sign-off, the other repository's twin issue
+```
+
+Squash merges use the PR description as the commit message, so the keyword in the PR description is what closes the issue. When a slice merges, tick its box in the tracker.
+
 ## Linking across repositories
 
 A feature that spans both repositories gets an issue in each, and each links to the other in *Related*:

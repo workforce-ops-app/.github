@@ -4,7 +4,7 @@
 
 ## review/integration
 
-- **Rebuilt automatically** whenever `main` changes or a pull request into `main` is opened, updated, reopened, closed, or marked ready for review.
+- **Rebuilt automatically** whenever a pull request into `main` is opened, updated, reopened, closed or merged, or marked ready for review or draft. `main` only changes through merged PRs, so this covers every change to `main` too. Runs replace each other: if a new event arrives mid-rebuild, the older run is cancelled and the newer one does the work.
 - **Rebuilt from scratch** each time: reset to `main`, then each ready PR merged in PR-number order. Merged or closed PRs never linger.
 - **Draft PRs are left out.**
 - **Conflicts:** a PR that does not merge cleanly is left out, and it gets a comment saying what it conflicts with (`main` or specific PRs). The comment updates once the conflict is gone. Resolving it early avoids a painful merge later.

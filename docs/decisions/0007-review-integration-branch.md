@@ -10,7 +10,7 @@ A branch called `review/integration` always holds `main` plus every open pull re
 PRs are kept small and topic-focused, but they still need to be tested together, and conflicts between them are cheaper to fix early. Keeping a combined branch up to date by hand would drift.
 
 ## Decision
-- A workflow rebuilds the branch from scratch on every push to `main` and whenever a PR into `main` is opened, updated, reopened, closed, or marked ready or draft.
+- A workflow rebuilds the branch from scratch whenever a PR into `main` is opened, updated, reopened, closed, or marked ready or draft. Since `main` only changes through merged PRs, this also covers every change to `main`.
 - Ready PRs are merged onto `main` in PR-number order; drafts and PRs from forks are excluded.
 - A PR that conflicts is left out and gets a comment naming what it conflicts with; the comment updates when it becomes clean.
 - After pushing, the workflow dispatches CI on the branch, so the combination is tested.

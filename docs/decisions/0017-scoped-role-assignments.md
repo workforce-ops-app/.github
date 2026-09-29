@@ -20,7 +20,7 @@ CHECK: exactly the column matching scope_type is set; all three are NULL for 'co
 - **Structure:** each team belongs to one department. Each employee belongs to **one department** and may be on **several teams** within the company.
 - **Nesting:** a department scope covers the department's teams and all its members; a team scope covers the team's members; an employee scope covers that employee. Resolution is done in code, one level deep.
 - **Self-service** actions (viewing one's own schedule, requesting time off) use separate `*_self` permissions and need no scope row.
-- `authorize(user, permission, target)` passes when at least one of the user's role assignments grants the permission **and** its scope covers the target.
+- `authorize(user, permission, target)` passes when at least one of the user's role assignments grants the permission **and** its scope covers the target. Actions on a person (changing their roles, reviewing their requests, account actions) also require being above that person in the reporting chain ([0024](0024-authorization-model.md)).
 
 ## Consequences
 - Answers "can a user hold different roles in different departments?": yes.

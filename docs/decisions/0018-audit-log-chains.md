@@ -11,7 +11,7 @@ Every security-relevant action is written to an audit log that cannot be quietly
 
 ## Decision
 - **One chain per company**, plus one **platform chain** for actions by platform personnel.
-- **Entry fields:** sequence number, company, actor (user or `system`), action, target type and ID, timestamp (UTC), details (JSON), previous signature, signature.
+- **Entry fields:** sequence number, company, actor (a user, a platform staff member, or `system`), action, target type and ID, timestamp (UTC), details (JSON), previous signature, signature.
 - **Signature:** `HMAC-SHA256(key, canonical_json(fields) + previous_signature)`. Canonical JSON uses sorted keys and fixed formatting so the same entry always produces the same bytes. The key comes from the environment or a secret store, never the database, and has an ID so it can be rotated (old entries keep the ID of the key that signed them).
 - **Ordering:** a per-chain head row (`audit_chain_heads`) is locked (`SELECT … FOR UPDATE`) while an entry is appended, so sequence numbers never collide or skip.
 - **Verification:** a nightly job re-verifies every chain and records the result as an audit event; owners can run it on demand; the latest head signature is also written to the application log, outside the database.

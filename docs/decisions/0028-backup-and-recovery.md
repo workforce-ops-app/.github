@@ -10,7 +10,7 @@ Backups are encrypted, kept off the server where an attacker can't delete them, 
 "Maintain service availability and recoverability" is a security proposal goal, and both internal and external attackers may try to destroy data. Decisions 0018 and 0020 prevent quiet tampering and deletion through the application, but do not recover data.
 
 ## Decision
-- **Damage limits:** the application's database user has no DROP, TRUNCATE, or ALTER; bulk destructive actions need password re-entry and confirmation, with further safeguards in stretch ([0025](0025-sensitive-actions-and-security-settings.md)); mass-change alerts.
+- **Damage limits:** the application's database user has no DROP, TRUNCATE, or ALTER; bulk destructive actions need a confirmation showing how many records are affected, plus password re-entry where 0025 requires it, with further safeguards in stretch ([0025](0025-sensitive-actions-and-security-settings.md)); mass-change alerts.
 - **Backups:** nightly full backup plus binlog shipped off-server every 5 minutes or streamed; encrypted; write-once storage with separate credentials; retention 30 days daily, 3 months weekly.
 - **Targets:** RPO 5 minutes; RTO 4 hours (measured in every drill).
 - **Verification:** monthly timed restore drill; audit chains verified after every restore.

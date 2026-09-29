@@ -1,7 +1,7 @@
 # 0026. API conventions
 
-- **Status:** Accepted (`/api/v1` prefix tentative)
-- **Date:** 2026-09-23
+- **Status:** Accepted
+- **Date:** 2026-09-23 (revised 2026-09-28 at sign-off)
 
 ## In short
 The frontend and backend talk through one consistent set of rules: predictable addresses, one error format that never leaks internals, and paged lists. This makes the API easier to build, test, and audit.
@@ -10,7 +10,7 @@ The frontend and backend talk through one consistent set of rules: predictable a
 Two people build both sides of every feature. Consistent conventions prevent every endpoint from inventing its own style, and several conventions are also security controls (error handling, status codes for other companies' data).
 
 ## Decision
-- Addresses `/api/v1/…`, plural hyphenated resources, actions as sub-paths. **The version prefix is tentative** pending discussion between the teammates.
+- Addresses `/api/...` with **no version number**, plural hyphenated resources, actions as sub-paths (e.g. `POST /api/time-off-requests/{id}/approve`). This replaces the `/api/v1` convention in [0012](0012-extensibility-patterns.md).
 - JSON with `snake_case`; UUID strings; ISO 8601 UTC moments; `YYYY-MM-DD` dates ([0019](0019-uuidv7-ids.md), [0021](0021-time-handling.md)).
 - RFC 9457 problem details for errors, never internal details; status codes:
 
@@ -31,7 +31,8 @@ Background: the team's [design review sign-off](https://github.com/workforce-ops
 ## Consequences
 - The frontend's `js/api/` layer handles one error format.
 - Security tests can assert exact status codes, e.g. 404 (not 403) across companies.
+- If outside clients ever use the API, a version prefix would need to be added then, changing every frontend call.
 
 ## Alternatives considered
 - **Page-number pagination:** simpler, but rows shift while data changes.
-- **No version prefix:** simpler addresses; adding one later changes every frontend call.
+- **A version prefix (`/api/v1`):** lets an old and a new API run side by side. Not needed here: the frontend and API are served from one origin ([0003](0003-same-origin-deployment.md)) and released together, so a breaking change updates both at once, and there are no outside API clients. Versions are tracked through the repositories' releases instead.

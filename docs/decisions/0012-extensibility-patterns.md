@@ -17,7 +17,7 @@ The proposals describe the initial features, but the application should be able 
 | **Scope resolvers** | The module registers how to find which company, department, team, or employee a resource belongs to, so `authorize(user, permission, target)` works without changes to `authz/` |
 | **Internal events** | Modules publish events (for example `time_off.approved`); notifications, audit, and detection subscribe instead of being called directly |
 | **Module settings** | Company-configurable policies are declared per module with types and defaults and stored in one generic table |
-| **API versioning** | All endpoints live under `/api/v1`; breaking changes ship as `/api/v2` alongside |
+| **API addresses** | All endpoints live under `/api` with no version number; the frontend and API are released together ([0026](0026-api-conventions.md)) |
 | **Permission-driven navigation** | The frontend menu is generated from the pages a user may access |
 | **`js/api/` layer** | Frontend pages never call `fetch` directly |
 

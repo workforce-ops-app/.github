@@ -35,7 +35,7 @@ These patterns let features that are not planned yet be added without rewriting 
 | Scope resolvers | Register how to find the company/department/team/employee a new resource belongs to, so `authorize()` works for it without changes |
 | Internal events | Publish events (for example `shift.reassigned`) that notifications, audit, and detection can react to, without the modules calling each other |
 | Module settings | Declare company-configurable policies (deadlines, cutoffs) with types and defaults |
-| API versioning | Ship breaking changes as `/api/v2` next to `/api/v1` |
+| API changes | Change the frontend and the API in the same release; there is no version number in addresses ([0026](../decisions/0026-api-conventions.md)) |
 | `js/api/` layer | All frontend server calls go through one layer, so pages can be rebuilt (even with a framework) without touching the backend |
 
 Known limits are recorded in the [decision records](../decisions/README.md).

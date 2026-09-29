@@ -11,7 +11,7 @@
 ## Details            ← technical specifics, as subsections
 ```
 
-Plain language means no jargon a non-developer would stumble on. "Employees can now ask for days off and see whether their manager approved" rather than "Adds POST /api/v1/time-off with state machine".
+Plain language means no jargon a non-developer would stumble on. "Employees can now ask for days off and see whether their manager approved" rather than "Adds POST /api/time-off with state machine".
 
 ## Issue templates
 

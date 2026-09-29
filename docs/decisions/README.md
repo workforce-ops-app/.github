@@ -22,11 +22,11 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0014](0014-markdown-issue-templates.md) | Markdown issue templates instead of issue forms | Accepted |
 | [0015](0015-public-repositories.md) | Public repositories with private vulnerability reporting | Accepted |
 | [0023](0023-feature-tiers-and-audit-schedule.md) | Feature tiers and security audit schedule | Accepted |
-| [0024](0024-authorization-model.md) | Authorization model: permissions, ranked roles, and escalation rules | Accepted |
+| [0024](0024-authorization-model.md) | Authorization model: permissions, reporting lines, and escalation rules | Accepted |
 | [0025](0025-sensitive-actions-and-security-settings.md) | Safeguards for sensitive actions and "stricter only" company security settings | Accepted |
-| [0026](0026-api-conventions.md) | API conventions | Accepted (`/api/v1` tentative) |
-| [0027](0027-authentication-and-sessions.md) | Authentication, sessions, and onboarding | Accepted (session timeouts pending) |
-| [0028](0028-backup-and-recovery.md) | Backup and recovery | Accepted (mirror location pending) |
-| [0029](0029-request-approval-routing.md) | Request approval routing | Accepted (denial rule pending) |
+| [0026](0026-api-conventions.md) | API conventions | Accepted |
+| [0027](0027-authentication-and-sessions.md) | Authentication, sessions, and onboarding | Accepted |
+| [0028](0028-backup-and-recovery.md) | Backup and recovery | Accepted |
+| [0029](0029-request-approval-routing.md) | Request approval routing | Accepted |
 | [0030](0030-security-study-method.md) | Security study method | Accepted |
-| [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted (phone connection pending) |
+| [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted |

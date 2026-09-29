@@ -50,6 +50,8 @@ Each repository lists its operations in `ci.toml` at its root. An operation swit
 
 - `.github/workflows/ci.yml` in each repository calls the shared `reusable-ci.yml` from the `.github` repository.
 - **The one required status check is `ci / overall`.** It fails if any operation failed.
+- **Cancelling:** on a pull request, a newer run replaces an older one that is still going, since only the latest commit matters. Runs on `main`, `production`, and `review/*` are never cancelled. GitHub shows a cancelled run as a red X on the commit, and every commit on those branches should get a complete result.
+- **Skipped is not failed:** on `main`, `pr-policy` and the report comment are skipped because there is no PR to check or comment on. GitHub counts skipped checks as neutral, so the commit still shows green.
 - `ci-comment.yml` posts the report as a PR comment after the run finishes. It runs separately so it can post even on Dependabot PRs, and it checks that the report belongs to the PR's current commit. Cancelled runs (replaced by a newer run, for example when labels are added) never post.
 - `deploy.yml` runs on pushes to `production`. Until a hosting target exists it builds the image and reports a dry run. Setting the repository variable `DEPLOY_ENABLED` to `true` switches to the real deployment step once one is written.
 

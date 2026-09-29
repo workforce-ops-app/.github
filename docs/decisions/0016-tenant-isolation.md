@@ -22,12 +22,13 @@ Preventing cross-tenant access is the first goal in the security proposal. MySQL
 
 **Layer 4: "not found", not "forbidden".** Requests for another company's records return 404, so responses do not reveal which IDs exist.
 
-**Accounts.** A user account belongs to exactly one company. A person working for two companies has two accounts. Platform personnel are stored separately and never belong to a company (support access is a separate, audited mechanism).
+**Accounts.** A user account belongs to exactly one company. An email address belongs to at most one account on the whole platform (compared in lowercase), so signing in needs only an email and a password. A person working for two companies has two accounts, with a different email for each. Platform personnel are stored separately and never belong to a company (support access is a separate, audited mechanism).
 
 ## Consequences
 - The automatic filter must be documented clearly (`docs/architecture/tenancy.md` in the backend), because it is invisible in individual queries.
 - Composite keys make company-owned foreign keys wider.
 - Background jobs must set the company explicitly for each unit of work.
+- Because emails are unique across the platform, an administrator who adds an address already used by another company learns that it is taken. The answer never says where it is used; the backend threat model lists this as a known limit.
 
 ## Alternatives considered
 - **Database per company:** strongest isolation, much more operational work.

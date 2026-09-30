@@ -44,7 +44,7 @@ The features planned for each demo are recorded in decision [0023](../decisions/
 
 - **Split by feature, not by layer.** Each teammate owns features end to end (backend, frontend, docs, tests), working closely together, and reviews the other's pull requests. There is no expectation of an even split.
 - **Every change goes through a pull request** approved by the other teammate ([workflow](../contributing/workflow.md)).
-- **Work is tracked on the organization's project board**, which collects issues from every repository.
+- **Work is tracked on one project board per repository** ([backend](https://github.com/orgs/workforce-ops-app/projects/1), [frontend](https://github.com/orgs/workforce-ops-app/projects/2), [.github](https://github.com/orgs/workforce-ops-app/projects/3)), with the columns Backlog, Ready, In progress, In review, and Done ([workflow](../contributing/workflow.md#project-board)).
 - **The plan is the pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) issue:** the phases from design to the final demo, what each phase must prove before the next starts, and a tracker issue for each phase and larger feature ([slices and trackers](../contributing/issues-and-prs.md#slices-and-tracker-issues)).
 
 ## Repositories
@@ -58,4 +58,4 @@ The features planned for each demo are recorded in decision [0023](../decisions/
 
 ## Design decisions
 
-The project's design decisions and their reasons are in the [decision records](../decisions/README.md). The discussion that led to them is kept in the [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17) issue.
+**New to the design? Start with the [design overview](design-overview.md)**: the whole system in a few minutes and a reading order. The project's design decisions and their reasons are in the [decision records](../decisions/README.md). The discussion that led to them is kept in the [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17) issue.

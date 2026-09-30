@@ -42,10 +42,12 @@ Most work is already planned as slices listed in a tracker issue; the pinned **R
 
 ### Project board
 
-All issues from every repository are tracked on the organization's project board, with the columns **To do → In progress → In review → Done**.
-- New issues are added to the board and start in **To do**.
+Each repository has its own project board in the organization ([backend](https://github.com/orgs/workforce-ops-app/projects/1), [frontend](https://github.com/orgs/workforce-ops-app/projects/2), [.github](https://github.com/orgs/workforce-ops-app/projects/3)), with the columns **Backlog → Ready → In progress → In review → Done**.
+- New issues are added to their repository's board automatically and start in **Backlog**. Post-merge review issues are left off the boards (the boards' auto-add filter excludes `-label:post-merge-review`); find them by that label in the repository's issue list.
+- **Ready** means the issue's dependencies have merged, so anyone can pick it up (the tracker issue says what depends on what).
 - Assign yourself and move the card to **In progress** when you start the branch.
 - The card moves to **In review** when the PR is opened, and to **Done** when it merges and closes the issue.
+- The pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) ties the three boards together: it shows the phases and links each phase's tracker issue.
 
 ## 3. Branch
 

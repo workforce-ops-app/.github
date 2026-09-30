@@ -15,4 +15,4 @@
 | [Dependencies](dependencies.md) | Handling Dependabot PRs or changing tool versions |
 | [Repository setup](repository-setup.md) | Creating a repository or changing organization settings |
 
-Why things are the way they are is recorded in the [decision records](../decisions/README.md).
+Why things are the way they are is recorded in the [decision records](../decisions/README.md). For the design as a whole, start with the [design overview](../project/design-overview.md).

@@ -16,6 +16,8 @@
 - {name: "area:tenancy", color: "c5def5", description: "Company isolation"}
 - {name: "area:audit", color: "c5def5", description: "Audit log"}
 - {name: "area:detection", color: "c5def5", description: "Suspicious-activity detection"}
+- {name: "area:core", color: "c5def5", description: "App factory, settings, errors, logging"}
+- {name: "area:db", color: "c5def5", description: "Database layer, models, migrations"}
 - {name: "area:schedules", color: "c5def5", description: "Shifts and schedules"}
 - {name: "area:time-off", color: "c5def5", description: "Time-off requests"}
 - {name: "area:coverage", color: "c5def5", description: "Shift coverage and swaps"}

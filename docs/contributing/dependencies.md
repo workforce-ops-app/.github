@@ -8,7 +8,7 @@
 |---|---|---|
 | Python | 3.13 | a decision (Dependabot does not move it) |
 | MySQL | 8.4 LTS | a decision; Dependabot applies 8.4.x patches only |
-| Node.js | 22 LTS (tooling only) | a decision |
+| Node.js | 24 LTS (tooling only; [0033](../decisions/0033-nodejs-24.md)) | a decision |
 | Python / npm packages | pinned in lock files | Dependabot |
 | Docker base images | pinned tags | Dependabot, within the versions above |
 | GitHub Actions | pinned to exact commit SHAs, with the version in a comment | Dependabot |

@@ -71,7 +71,7 @@ jobs:
       - if: inputs.stack == 'node'
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version: "22"
+          node-version: "24"
       - name: Run ci.toml operations
         run: python "$RUNNER_TEMP/shared/scripts/ci_runner.py" --config ci.toml --out ci-results/checks.json
         env:

@@ -1,6 +1,6 @@
 # 0010. Python 3.13, MySQL 8.4 LTS, Node.js 22 LTS
 
-- **Status:** Accepted
+- **Status:** Accepted; the Node.js line is superseded by [0033](0033-nodejs-24.md) (Node.js 24 LTS)
 - **Date:** 2026-09-22
 
 ## In short
@@ -14,7 +14,7 @@ The team needs stable versions that will be supported for the life of the projec
 |---|---|---|
 | Python | 3.13 | backend, CI scripts, git hooks |
 | MySQL | 8.4 LTS | database |
-| Node.js | 22 LTS | frontend development tooling only |
+| Node.js | ~~22 LTS~~ 24 LTS since [0033](0033-nodejs-24.md) | frontend development tooling only |
 
 CI installs these exact major/minor versions. Dependabot is configured not to move Python or MySQL past them, and applies patch releases only.
 

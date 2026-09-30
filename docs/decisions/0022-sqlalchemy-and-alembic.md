@@ -14,7 +14,7 @@ The proposal requires parameterized queries to prevent SQL injection. The tenant
 - Raw SQL strings are not used. Where a hand-written query is unavoidable it uses bound parameters (`text()` with `:name` placeholders) and is reviewed as security-sensitive.
 - **Alembic** manages the schema: one migration per PR ([modularity guide](../contributing/modularity.md)); CI checks for a single head and runs upgrade/downgrade on a fresh MySQL.
 - Only `repository.py` modules issue queries ([0004](0004-backend-feature-modules.md)).
-- The exact driver and whether to use async sessions are decided when the backend is scaffolded.
+- The exact driver and whether to use async sessions are decided when the backend is scaffolded: synchronous sessions with PyMySQL ([0034](0034-database-driver-ids-and-local-layout.md)).
 
 ## Consequences
 - The ORM's global query hooks give one place to enforce tenancy and hide inactive records.

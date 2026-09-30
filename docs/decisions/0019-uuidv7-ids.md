@@ -12,7 +12,7 @@ Sequential IDs (1, 2, 3…) in URLs let anyone guess other records' IDs and esti
 ## Decision
 - Primary keys are **UUIDv7**, stored as `BINARY(16)` and exposed in the API as standard hyphenated UUID strings.
 - UUIDv7 starts with a millisecond timestamp followed by random bits, so rows are inserted roughly in order.
-- IDs are generated in the application with a small, maintained library (Python 3.13 has no built-in UUIDv7).
+- IDs are generated in the application with a small, maintained library (Python 3.13 has no built-in UUIDv7): `uuid6` ([0034](0034-database-driver-ids-and-local-layout.md)).
 - Unguessable IDs are an extra layer only; every access is still authorized ([0016](0016-tenant-isolation.md), [0017](0017-scoped-role-assignments.md)).
 
 ## Consequences

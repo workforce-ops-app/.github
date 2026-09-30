@@ -63,4 +63,5 @@ The full list of decisions is in the [decision records](../decisions/README.md);
 
 - **The [Roadmap](https://github.com/workforce-ops-app/.github/issues/24)** (pinned): the phases from design to the final demo, what each must prove before the next starts, and the current status.
 - **Each phase and larger feature has a tracker issue** listing its small pieces of work; pick the next open one whose dependencies have merged ([slices and trackers](../contributing/issues-and-prs.md#slices-and-tracker-issues)).
+- **Each repository has a project board** (Backlog, Ready, In progress, In review, Done) showing who is working on what ([workflow](../contributing/workflow.md#project-board)).
 - **Every change** goes through a pull request approved by the other teammate ([workflow](../contributing/workflow.md)).

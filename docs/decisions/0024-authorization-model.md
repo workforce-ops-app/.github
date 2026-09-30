@@ -26,6 +26,7 @@ The proposal requires role-based access with scopes ([0017](0017-scoped-role-ass
   - every role, permission, assignment, and reporting line change is written to the audit log.
 - **Check:** `authorize(user, permission, target)`, deny by default. For records (shifts, tasks, announcements), it passes when an assignment grants the permission and its scope covers the target. For actions on a person, the user must also be above that person in the chain. `_self` permissions pass only for the user's own records. Modules register resolvers, and lists use a scope filter that becomes a database condition.
 - **Data:** a `reporting_lines` table (manager, employee, end date); roles have no rank.
+- **Delegation limits** (who may edit a role, approval for same-level grants, and owner changes) are in [0032](0032-delegation-limits.md).
 
 Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 

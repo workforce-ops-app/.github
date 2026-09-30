@@ -11,6 +11,7 @@ The proposal asks for protections "based on the sensitivity of the action rather
 
 ## Decision
 - **Core:** password re-entry for ownership transfer, admin-level changes, role permission changes, reporting line changes ([0024](0024-authorization-model.md)), and security setting changes; a confirmation showing the count for schedule changes of **10+ shifts**.
+- **Core, from [0032](0032-delegation-limits.md):** approval from above for same-level role grants, and agreement of the other owners for owner changes.
 - **Stretch:** a **48-hour** cancellable wait for ownership transfer; a second approval for removing an administrator or changing admin-level permissions, and for bulk schedule changes above a company-set limit; notifications to owners, admins, and affected people.
 - **Company security settings:** every setting has a platform default and limit; companies may only move settings in the stricter direction, within these limits. Changes require password re-entry.
 

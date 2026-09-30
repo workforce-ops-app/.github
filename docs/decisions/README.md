@@ -37,3 +37,4 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0029](0029-request-approval-routing.md) | Request approval routing | Accepted |
 | [0030](0030-security-study-method.md) | Security study method | Accepted |
 | [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted |
+| [0032](0032-delegation-limits.md) | Delegation limits: role editing, same-level grants, owner changes, and account changes | Accepted |

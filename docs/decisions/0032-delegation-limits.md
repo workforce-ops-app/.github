@@ -20,7 +20,7 @@ The owner is the only person who holds every permission; everyone else holds a p
   - One owner: acts alone.
   - Several owners: **adding** an owner needs every current owner to approve; **removing** one needs every owner **except the one being removed**, so no owner can block their own removal and no owner can remove another alone.
   - The last owner cannot be removed. Leaders who are not co-owners (for example a board of directors) get their own role below the owner, not the Owner role.
-- **Approval requests** use one shared record for role grants, owner changes, and time off (0029). A request not decided within **7 days** expires; the requester can send it again.
+- **Approval requests** use one shared record for role grants, owner changes, and time off (0029). A role grant or owner change not decided within **7 days** expires; the requester can send it again. Other kinds of request set their own expiry on their feature page (a time-off request, for example, expires if still undecided when its first day arrives).
 - **Tier:** core ([0023](0023-feature-tiers-and-audit-schedule.md)).
 
 ## Consequences

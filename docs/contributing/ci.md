@@ -22,8 +22,8 @@ Overall: ✅ 5 passed · 0 failed · 3 skipped
 | Icon | Meaning |
 |---|---|
 | ✅ | passed |
-| ❌ | failed — blocks merging |
-| ⏭️ | skipped — the files it needs do not exist yet (the summary says which) |
+| ❌ | failed: blocks merging |
+| ⏭️ | skipped: the files it needs do not exist yet (the summary says which) |
 | ⚠️ | failed but bypassed with a label |
 
 Warnings (for example "no linked issue" or "code changed but docs did not") are listed under the table and do not block merging.
@@ -39,7 +39,7 @@ Warnings (for example "no linked issue" or "code changed but docs did not") are 
 | lint | ruff (includes security rules) | eslint, stylelint, html-validate |
 | typecheck | mypy | tsc on JSDoc types |
 | unit-test | pytest `tests/unit` | vitest |
-| migration-check | one Alembic head; upgrade/downgrade on a fresh MySQL | — |
+| migration-check | one Alembic head; upgrade/downgrade on a fresh MySQL | not applicable |
 | security-test | pytest `tests/security` (cross-tenant, escalation) | header/CSP checks |
 | build | Docker image | Docker image (nginx) |
 | integration-test | compose up, health check, pytest `tests/integration` | Playwright |

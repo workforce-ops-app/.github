@@ -1,6 +1,6 @@
 # Security policy
 
-**In short:** if you find a way to get at data or actions you should not have access to, report it privately — not in a public issue — so it can be fixed before anyone else learns about it.
+**In short:** if you find a way to get at data or actions you should not have access to, report it privately (not in a public issue) so it can be fixed before anyone else learns about it.
 
 ## Reporting a vulnerability
 

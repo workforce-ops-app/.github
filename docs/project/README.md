@@ -58,4 +58,4 @@ The features planned for each demo are recorded in decision [0023](../decisions/
 
 ## Design decisions
 
-The project's design decisions and their reasons are in the [decision records](../decisions/README.md). The discussion that led to them is kept in the [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17) issue.
+**New to the design? Start with the [design overview](design-overview.md)**: the whole system in a few minutes and a reading order. The project's design decisions and their reasons are in the [decision records](../decisions/README.md). The discussion that led to them is kept in the [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17) issue.

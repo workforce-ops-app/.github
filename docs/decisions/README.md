@@ -15,7 +15,7 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0007](0007-review-integration-branch.md) | Automatically rebuilt `review/integration` branch | Accepted |
 | [0008](0008-ci-pipeline-and-report.md) | Shared CI pipeline with a single PR report comment | Accepted |
 | [0009](0009-ci-bypass-policy.md) | Bypasses allowed but discouraged, justified, and followed up | Accepted |
-| [0010](0010-runtime-versions.md) | Python 3.13, MySQL 8.4 LTS, Node.js 22 LTS | Accepted |
+| [0010](0010-runtime-versions.md) | Python 3.13, MySQL 8.4 LTS, Node.js 22 LTS | Accepted; Node.js superseded by 0033 |
 | [0011](0011-dependency-updates-and-pinning.md) | Dependabot updates and SHA-pinned actions | Accepted |
 | [0012](0012-extensibility-patterns.md) | Extension points for features not yet planned | Accepted |
 | [0013](0013-documentation-structure.md) | Four documentation categories, docs in the same PR | Accepted |
@@ -37,4 +37,5 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0029](0029-request-approval-routing.md) | Request approval routing | Accepted |
 | [0030](0030-security-study-method.md) | Security study method | Accepted |
 | [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted |
+| [0033](0033-nodejs-24.md) | Node.js 24 LTS for frontend tooling | Accepted |
 | [0032](0032-delegation-limits.md) | Delegation limits: role editing, same-level grants, owner changes, and account changes | Accepted |

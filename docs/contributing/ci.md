@@ -78,6 +78,8 @@ summary_patterns = ['(\d+) passed', 'TOTAL.* (\d+%)']   # regular expressions; f
 summary_format = "{0} passed · coverage {1}"           # how the values are shown
 ```
 
+Coverage in the unit-test row is a map of what the tests ran, not a security score; see [testing](testing.md).
+
 The summary cell shows `pass_summary` if set; otherwise `summary_format` filled with what `summary_patterns` found; otherwise the last line of output (also when any pattern is not found).
 
 The report title uses a readable name for each repository (`DISPLAY_NAMES` in `scripts/ci_report.py`): Workforce Operations Backend, Workforce Operations Frontend, and Workforce Operations Shared Configuration.

@@ -5,7 +5,7 @@
 ## The report comment
 
 ```
-workforce-ops-backend — CI Report
+Workforce Operations Backend — CI Report
 python · commit 1e39397 · run log
 
 | Operation        | Status | Summary                          | Time  |
@@ -14,9 +14,11 @@ python · commit 1e39397 · run log
 | audit            | ✅     | no known vulnerabilities         | 6.2s  |
 | format-check     | ✅     | 42 files already formatted       | 0.3s  |
 | lint             | ✅     | All checks passed!               | 0.5s  |
-| typecheck        | ⏭️     | no app                           | —     |
+| typecheck        | ✅     | Success: no issues found         | 4.9s  |
+| unit-test        | ✅     | 6 passed · coverage 94%          | 1.5s  |
+| migration-check  | ⏭️     | no alembic.ini                   | —     |
 | …                                                                         |
-Overall: ✅ 5 passed · 0 failed · 3 skipped
+Overall: ✅ 7 passed · 0 failed · 4 skipped
 ```
 
 | Icon | Meaning |
@@ -68,6 +70,17 @@ pass_summary = "0 problems"      # optional; default is the last line of output
 local = true                     # false = CI only
 timeout_minutes = 15
 ```
+
+**Summaries from the output.** Instead of a fixed `pass_summary`, an operation can pull values out of its output:
+
+```toml
+summary_patterns = ['(\d+) passed', 'TOTAL.* (\d+%)']   # regular expressions; first group of each
+summary_format = "{0} passed · coverage {1}"           # how the values are shown
+```
+
+The summary cell shows `pass_summary` if set; otherwise `summary_format` filled with what `summary_patterns` found; otherwise the last line of output (also when any pattern is not found).
+
+The report title uses a readable name for each repository (`DISPLAY_NAMES` in `scripts/ci_report.py`): Workforce Operations Backend, Workforce Operations Frontend, and Workforce Operations Shared Configuration.
 
 A new operation name also needs a `bypass:<name>` label in `labels.yml`.
 

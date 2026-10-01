@@ -17,6 +17,13 @@ from pathlib import Path
 MARKER = "<!-- ci-report -->"
 ICONS = {"pass": "✅", "fail": "❌", "skip": "⏭️", "bypassed": "⚠️"}
 # pr-policy first, then checks, then anything else in file-name order.
+# Report titles: full words, capitalized; other repositories fall back to _display_name.
+DISPLAY_NAMES = {
+    "workforce-ops-backend": "Workforce Operations Backend",
+    "workforce-ops-frontend": "Workforce Operations Frontend",
+    ".github": "Workforce Operations Shared Configuration",
+}
+ABBREVIATIONS = {"ops": "Operations"}
 ORDER = {"policy.json": 0, "checks.json": 1}
 
 
@@ -24,6 +31,14 @@ def _time(seconds: float | None) -> str:
     if seconds is None:
         return "—"
     return f"{seconds:.1f}s" if seconds < 60 else f"{int(seconds // 60)}m {int(seconds % 60)}s"
+
+
+def _display_name(repo: str) -> str:
+    name = repo.rsplit("/", 1)[-1]
+    if name in DISPLAY_NAMES:
+        return DISPLAY_NAMES[name]
+    words = name.strip(".").replace("_", "-").split("-")
+    return " ".join(ABBREVIATIONS.get(w.lower(), w.capitalize()) for w in words if w)
 
 
 def _cell(text: str) -> str:
@@ -47,7 +62,7 @@ def build(results_dir: Path, repo: str, sha: str, stack: str, run_url: str) -> t
 
     lines = [
         MARKER,
-        f"### {repo} — CI Report",
+        f"### {_display_name(repo)} — CI Report",
         f"`{stack}` · commit `{sha[:7]}`" + (f" · [run log]({run_url})" if run_url else ""),
         "",
         "| Operation | Status | Summary | Time |",

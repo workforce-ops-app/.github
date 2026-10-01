@@ -13,6 +13,18 @@ class ReportTests(unittest.TestCase):
                 Path(tmp, name).write_text(json.dumps(data), encoding="utf-8")
             return ci_report.build(Path(tmp), "workforce-ops-backend", "1e39397abc", "python", "")
 
+    def test_title_uses_display_name(self):
+        report, _ = self.build(
+            {"checks.json": [{"name": "lint", "status": "pass", "summary": "ok", "time": 1.0}]}
+        )
+        self.assertIn("### Workforce Operations Backend — CI Report", report)
+
+    def test_display_name_fallback(self):
+        self.assertEqual(ci_report._display_name("workforce-ops-research"), "Workforce Operations Research")
+        self.assertEqual(
+            ci_report._display_name("workforce-ops-app/.github"), "Workforce Operations Shared Configuration"
+        )
+
     def test_policy_first_and_overall_pass(self):
         report, failed = self.build(
             {

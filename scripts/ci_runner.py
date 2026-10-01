@@ -1,4 +1,4 @@
-"""Run the operations listed in a repository's ci.toml and record the results.
+r"""Run the operations listed in a repository's ci.toml and record the results.
 
 The same script runs in GitHub Actions and locally, so a contributor sees the
 same checks before pushing that the pull request will see.
@@ -18,6 +18,8 @@ ci.toml format:
     run = "ruff check ."            # {repo} expands to the repository root
     requires = ["pyproject.toml"]   # skipped with a reason if any path is missing
     pass_summary = "0 problems"     # optional; otherwise the last output line
+    summary_patterns = ['(\d+) passed', 'TOTAL.* (\d+%)']   # optional regular expressions;
+    summary_format = "{0} passed · coverage {1}"                # first group of each, in order
     local = true                    # false = CI only
     timeout_minutes = 15
 """
@@ -47,6 +49,21 @@ def _summary_from_output(output: str) -> str:
         if line:
             return line[:MAX_SUMMARY]
     return ""
+
+
+def _summary_from_patterns(output: str, patterns: list[str], fmt: str) -> str | None:
+    """Fill `fmt` with the first group of each pattern found in the output.
+
+    Returns None when any pattern is missing, so the caller can fall back to the last line.
+    """
+    text = ANSI_RE.sub("", output)
+    values = []
+    for pattern in patterns:
+        match = re.search(pattern, text)
+        if not match:
+            return None
+        values.append(match.group(1) if match.groups() else match.group(0))
+    return fmt.format(*values)[:MAX_SUMMARY]
 
 
 def _run(command: str, repo: Path, timeout_minutes: int) -> tuple[int, str, float]:
@@ -118,7 +135,13 @@ def run(config_path: Path, labels: set[str], only: str | None) -> list[dict]:
             bypassed = f"bypass:{name}" in labels and name not in NON_BYPASSABLE
             if code == 0:
                 entry["status"] = "pass"
-                entry["summary"] = op.get("pass_summary") or _summary_from_output(output)
+                patterns = op.get("summary_patterns")
+                from_patterns = (
+                    _summary_from_patterns(output, patterns, op.get("summary_format", "{0}"))
+                    if patterns
+                    else None
+                )
+                entry["summary"] = op.get("pass_summary") or from_patterns or _summary_from_output(output)
                 if bypassed:
                     entry["summary"] += " (bypass label not needed)"
             elif bypassed:

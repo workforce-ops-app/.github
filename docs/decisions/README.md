@@ -36,7 +36,8 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0028](0028-backup-and-recovery.md) | Backup and recovery | Accepted |
 | [0029](0029-request-approval-routing.md) | Request approval routing | Accepted |
 | [0030](0030-security-study-method.md) | Security study method | Accepted |
-| [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted |
+| [0031](0031-demo-environment-and-data.md) | Demo environment, demo data, and logging | Accepted; error logging refined by 0035 |
 | [0032](0032-delegation-limits.md) | Delegation limits: role editing, same-level grants, owner changes, and account changes | Accepted |
 | [0033](0033-nodejs-24.md) | Node.js 24 LTS for frontend tooling | Accepted |
 | [0034](0034-database-driver-ids-and-local-layout.md) | Synchronous SQLAlchemy with PyMySQL, `uuid6` for IDs, and the local run layout | Accepted |
+| [0035](0035-logging-unexpected-errors.md) | Logging unexpected errors: an error ID and location, full details only in development | Accepted |

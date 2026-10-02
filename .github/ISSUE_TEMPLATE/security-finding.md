@@ -37,4 +37,4 @@ and file this issue once the fix has merged.
 <!-- What fixed it and which PR. Add a regression test in tests/security where possible. -->
 
 ### Related
-<!-- Advisory ID, PRs, other findings. -->
+<!-- Advisory ID, PRs, other findings. Depends on #N for work that must merge first. -->

@@ -14,7 +14,7 @@ The web course grades live demos in midterm and final weeks. There is no hosting
 - **Laptop demos** with Docker Compose; hosting is decided later ([0023](0023-feature-tiers-and-audit-schedule.md) lists it as stretch unless needed earlier). Whether a local deployment over HTTPS meets the web course's deployment requirement is still to be confirmed with the instructor.
 - **Phones and computers**, WCAG 2.2 AA, current Chrome/Edge/Firefox/Safari.
 - **Phone view:** the phone layout is demonstrated with the browser's phone view on the laptop. A real phone reaching the laptop over Wi-Fi would need HTTPS, because the `__Host-` session cookie only works over HTTPS.
-- **Logs:** structured JSON, IDs/actions/errors only, no personal details, kept 30 days.
+- **Logs:** structured JSON, IDs/actions/errors only, no personal details, kept 30 days. How unexpected errors are logged is set out in [0035](0035-logging-unexpected-errors.md).
 
 Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 

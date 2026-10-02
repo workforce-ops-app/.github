@@ -28,7 +28,7 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0020](0020-status-over-deletion.md) | Change status instead of deleting records | Accepted |
 | [0021](0021-time-handling.md) | Store moments in UTC, schedule in the workplace's time zone | Accepted |
 | [0022](0022-sqlalchemy-and-alembic.md) | SQLAlchemy 2.0 and Alembic for database access | Accepted |
-| [0023](0023-feature-tiers-and-audit-schedule.md) | Feature tiers and security audit schedule | Accepted |
+| [0023](0023-feature-tiers-and-audit-schedule.md) | Feature tiers and security audit schedule | Accepted; midterm scope narrowed by 0036 |
 | [0024](0024-authorization-model.md) | Authorization model: permissions, reporting lines, and escalation rules | Accepted |
 | [0025](0025-sensitive-actions-and-security-settings.md) | Safeguards for sensitive actions and "stricter only" company security settings | Accepted |
 | [0026](0026-api-conventions.md) | API conventions | Accepted |
@@ -40,3 +40,4 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0032](0032-delegation-limits.md) | Delegation limits: role editing, same-level grants, owner changes, and account changes | Accepted |
 | [0033](0033-nodejs-24.md) | Node.js 24 LTS for frontend tooling | Accepted |
 | [0034](0034-database-driver-ids-and-local-layout.md) | Synchronous SQLAlchemy with PyMySQL, `uuid6` for IDs, and the local run layout | Accepted |
+| [0036](0036-midterm-scope-schedules.md) | Midterm demo: schedules on the security pieces it needs | Accepted |

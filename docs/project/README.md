@@ -32,11 +32,12 @@ Each team member submits their own copy of joint deliverables. Late work loses 1
 
 ## Scope by stage
 
-The features planned for each demo are recorded in decision [0023](../decisions/0023-feature-tiers-and-audit-schedule.md).
+The features planned for each demo are recorded in decisions [0023](../decisions/0023-feature-tiers-and-audit-schedule.md) and [0036](../decisions/0036-midterm-scope-schedules.md).
 
 | Stage | Target |
 |---|---|
-| **Core** | working by the midterm demo |
+| **Midterm** | schedules, on the security pieces it needs (sign-in, company isolation, roles with scopes, audit log), plus a practised presentation (0036) |
+| **Core** | the rest of the core tier, after the midterm and before the next tier |
 | **Next** | working by the final demo |
 | **Stretch** | if time allows |
 

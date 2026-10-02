@@ -30,3 +30,4 @@ labels: ["type:fix"]
 <!-- Could this expose data across companies, skip a permission check, or break audit logging? If it is an exploitable vulnerability, stop and report it privately instead (see SECURITY.md). -->
 
 ### Related
+<!-- Depends on #N for work that must merge first; Refs #N for related issues, PRs, and the tracker. -->

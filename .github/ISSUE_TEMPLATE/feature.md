@@ -25,7 +25,7 @@ labels: ["type:feat"]
 <!-- Tenancy (company isolation), permission + scope checks, input handling, audit logging. Write "None" only if truly none. -->
 
 ### Related
-<!-- Linked issues or PRs in either repo, e.g. workforce-ops-app/workforce-ops-frontend#12 -->
+<!-- Depends on #N for work that must merge first; Refs #N for related issues, PRs, and the tracker. Other repo: workforce-ops-app/workforce-ops-frontend#12 -->
 
 ### Out of scope
 <!-- What this issue deliberately does not cover. -->

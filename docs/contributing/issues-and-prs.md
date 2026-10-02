@@ -59,6 +59,23 @@ Promotion PRs (`main` → `production`) need only a `## Summary` listing the PRs
 - **Design before code:** the first slice of a feature is its design page (the backend feature page, plus a short frontend page for its screens). Code slices start once that page has merged.
 - **The overall plan** (phases, what each phase must prove before the next starts, and each phase's tracker) is the pinned **Roadmap** issue in this repository.
 
+## Issues that depend on other work
+
+Issues can be filed before the work they need has merged, as long as they say what they wait for. Nobody starts an issue until everything it depends on has merged.
+
+In the issue's *Related* section, one line per dependency:
+
+```
+Depends on #29 (in review as #36)            ← must merge before work on this issue starts
+Depends on workforce-ops-app/workforce-ops-backend#30
+Refs workforce-ops-app/.github#22            ← the tracker this slice belongs to
+```
+
+- **Link the issue, not only the pull request.** The issue number never changes; a pull request can be closed and replaced. Mention the pull request in parentheses when one is open.
+- **Say why in plain language** in the issue's notes, for example "needs the database layer to store sessions", so the reason makes sense to someone who isn't a developer.
+- **Keep the tracker in order.** The tracker lists the slice after the slices it depends on.
+- A pull request whose issue had dependencies says in *Merge notes* which pull requests must merge first, if any are still open.
+
 ## Closing issues from a pull request
 
 In *Related issues*:

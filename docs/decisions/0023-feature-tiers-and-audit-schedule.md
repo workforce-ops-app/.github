@@ -2,6 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-09-23 (revised 2026-09-28 at sign-off)
+- **Note:** the midterm scope was narrowed to schedules by [0036](0036-midterm-scope-schedules.md); the rest of the core tier follows after the midterm.
 
 ## In short
 Features are built in three tiers matched to the course deadlines: core for the midterm demo, next for the final demo, stretch if time allows. Security audits are scheduled so the backend is audited before the midterm.

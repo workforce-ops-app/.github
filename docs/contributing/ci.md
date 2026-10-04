@@ -38,7 +38,7 @@ Warnings (for example "no linked issue" or "code changed but docs did not") are 
 | secret-scan | gitleaks over the full history | same |
 | audit | pip-audit | npm audit (high and critical) |
 | format-check | ruff format | prettier |
-| lint | ruff (includes security rules) | eslint, stylelint, html-validate |
+| lint | ruff (includes security rules) | eslint (includes the XSS rule), Biome for CSS, html-validate |
 | typecheck | mypy | tsc on JSDoc types |
 | unit-test | pytest `tests/unit` | vitest |
 | migration-check | one Alembic head; upgrade/downgrade on a fresh MySQL | not applicable |

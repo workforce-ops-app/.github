@@ -62,20 +62,31 @@ class PolicyTests(unittest.TestCase):
         )
         self.assertTrue(pr_policy.evaluate(pr, [], ["app/x.py"]).ok)
 
-    def test_missing_sections(self):
+    def test_missing_sections_only_warn(self):
+        # Format rules never block a PR (decision 0037); the report still lists them.
         result = pr_policy.evaluate(make_pr(body="just a description"), [], [])
-        self.assertEqual(len([e for e in result.errors if "section" in e]), 3)
+        self.assertTrue(result.ok, result.errors)
+        self.assertEqual(len([w for w in result.warnings if "section" in w]), 3)
 
     def test_template_comments_do_not_count_as_content(self):
         body = GOOD_BODY.replace("Adds time-off requests.", "<!-- plain language -->")
-        self.assertFalse(pr_policy.evaluate(make_pr(body=body), [], []).ok)
+        warnings = pr_policy.evaluate(make_pr(body=body), [], []).warnings
+        self.assertTrue(any("Summary" in w for w in warnings))
 
-    def test_unfilled_template_fails(self):
+    def test_unfilled_template_warns(self):
         template = Path(__file__).resolve().parent.parent / ".github" / "PULL_REQUEST_TEMPLATE.md"
         body = template.read_text(encoding="utf-8")
-        errors = pr_policy.evaluate(make_pr(body=body), [], []).errors
-        self.assertTrue(any("Summary" in e for e in errors))
-        self.assertTrue(any("What changed" in e for e in errors))
+        result = pr_policy.evaluate(make_pr(body=body), [], [])
+        self.assertTrue(result.ok, result.errors)
+        self.assertTrue(any("Summary" in w for w in result.warnings))
+        self.assertTrue(any("What changed" in w for w in result.warnings))
+
+    def test_bad_title_and_branch_only_warn(self):
+        pr = make_pr(title="Added sign in", head={"ref": "my-branch"})
+        result = pr_policy.evaluate(pr, [], ["docs/a.md"])
+        self.assertTrue(result.ok, result.errors)
+        self.assertTrue(any("Title" in w for w in result.warnings))
+        self.assertTrue(any("Branch" in w for w in result.warnings))
 
     def test_bypass_needs_justification(self):
         pr = make_pr(labels=[{"name": "bypass:typecheck"}])

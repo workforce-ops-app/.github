@@ -38,8 +38,8 @@ Sections, in order:
 
 | Section | Required | Notes |
 |---|---|---|
-| Summary | yes (CI checks) | plain language |
-| What changed | yes (CI checks) | plain-language bullets |
+| Summary | yes (CI warns if missing) | plain language |
+| What changed | yes (CI warns if missing) | plain-language bullets |
 | Details → Technical changes | yes | |
 | Database / migrations | leave "None" if none | one migration per PR |
 | API contract changes | leave "None" if none | the frontend depends on this |

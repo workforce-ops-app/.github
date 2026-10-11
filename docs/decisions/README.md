@@ -13,7 +13,7 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0005](0005-frontend-multi-page-vanilla-js.md) | Multi-page frontend with plain ES modules and no build step | Accepted |
 | [0006](0006-branching-and-promotion.md) | `main` → `production` with squash merges into `main` | Accepted |
 | [0007](0007-review-integration-branch.md) | Automatically rebuilt `review/integration` branch | Accepted |
-| [0008](0008-ci-pipeline-and-report.md) | Shared CI pipeline with a single PR report comment | Accepted |
+| [0008](0008-ci-pipeline-and-report.md) | Shared CI pipeline with a single PR report comment | Accepted; PR format rules made warnings by 0037 |
 | [0009](0009-ci-bypass-policy.md) | Bypasses allowed but discouraged, justified, and followed up | Accepted |
 | [0010](0010-runtime-versions.md) | Python 3.13, MySQL 8.4 LTS, Node.js 22 LTS | Accepted; Node.js superseded by 0033 |
 | [0011](0011-dependency-updates-and-pinning.md) | Dependabot updates and SHA-pinned actions | Accepted |
@@ -42,3 +42,4 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0034](0034-database-driver-ids-and-local-layout.md) | Synchronous SQLAlchemy with PyMySQL, `uuid6` for IDs, and the local run layout | Accepted |
 | [0036](0036-midterm-scope-schedules.md) | Midterm demo: schedules on the security pieces it needs | Accepted |
 | [0035](0035-logging-unexpected-errors.md) | Logging unexpected errors: an error ID and location, full details only in development | Accepted |
+| [0037](0037-pr-format-rules-warn.md) | PR format rules warn instead of failing CI | Accepted |

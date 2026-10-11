@@ -28,13 +28,13 @@ Overall: ✅ 7 passed · 0 failed · 4 skipped
 | ⏭️ | skipped: the files it needs do not exist yet (the summary says which) |
 | ⚠️ | failed but bypassed with a label |
 
-Warnings (for example "no linked issue" or "code changed but docs did not") are listed under the table and do not block merging.
+Warnings (for example "no linked issue", "code changed but docs did not", or a title or description that does not follow the template) are listed under the table and do not block merging. The reviewer asks for those fixes instead.
 
 ## Operations
 
 | Operation | Backend | Frontend |
 |---|---|---|
-| pr-policy | title, branch name, template sections, bypass justification, no `Co-authored-by`, not from `review/*` | same |
+| pr-policy | fails on: a PR from `review/*`, anything but `main` into `production`, a `Co-authored-by` trailer, a bypass label without justification. Warns on: title, branch name, template sections ([0037](../decisions/0037-pr-format-rules-warn.md)) | same |
 | secret-scan | gitleaks over the full history | same |
 | audit | pip-audit | npm audit (high and critical) |
 | format-check | ruff format | prettier |

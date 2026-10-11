@@ -3,6 +3,11 @@
 Runs in CI on pull_request events. Reads the event payload and the GitHub API,
 then writes ci-results/policy.json for ci_report.py. Errors fail the check;
 warnings appear in the report without failing it. pr-policy cannot be bypassed.
+
+Only the safety rules are errors: where a PR may be merged, no Co-authored-by
+trailers, and a written reason for any bypass. Format rules (title, branch
+name, description sections) are warnings, so a PR is never blocked just for
+how it is written (decision 0037).
 """
 
 from __future__ import annotations
@@ -76,18 +81,19 @@ def evaluate(pr: dict, commits: list[dict], files: list[str]) -> rules.Result:
     if base not in ("main", "production"):
         result.errors.append(f"PRs must target 'main' (or 'production' for promotions), not '{base}'.")
 
-    # Title and branch name
-    result.errors.extend(rules.check_title(title).errors)
+    # Title and branch name: reported as warnings only, so the author can fix them
+    # without the PR being blocked. The local commit-msg hook still checks commit subjects.
+    result.warnings.extend(rules.check_title(title).errors)
     if not is_bot and not is_promotion:
         branch = rules.check_branch(head)
-        result.errors.extend(branch.errors)
+        result.warnings.extend(branch.errors)
         result.warnings.extend(branch.warnings)
 
-    # Description structure
+    # Description structure: also a warning. The reviewer asks for missing sections.
     if not is_bot:
         for heading in PROMOTION_SECTIONS if is_promotion else REQUIRED_SECTIONS:
             if not _filled(_section(body, heading)):
-                result.errors.append(f"The description needs a filled-in '{heading}' section.")
+                result.warnings.append(f"The description needs a filled-in '{heading}' section.")
         if not is_promotion and not rules.has_issue_reference(body):
             result.warnings.append(
                 "No linked issue (`Closes #N` or `Refs #N`). Basing work on a logged issue is encouraged."

@@ -1,7 +1,7 @@
 <!--
 Title: <type>(<area>): <summary>   e.g. feat(time-off): add request submission endpoint
 Types: feat, fix, security, refactor, test, docs, chore
-The three top-level sections below are checked by CI and must be filled in.
+Fill in the three top-level sections below. CI warns if one is empty (decision 0037).
 -->
 
 ## Summary

@@ -15,7 +15,7 @@
 
 | Deliverable | When | What |
 |---|---|---|
-| Midterm presentation | midterm week (date to be announced) | live demo of the application's progress to the instructor and class |
+| Midterm presentation | midterm week (date to be announced) | live demo of the application's progress to the instructor and class; see the [presentation plan](midterm-presentation.md) and the [demo script](demo-script.md) |
 | Final presentation | final week (date to be announced) | live demo of the finished application |
 | Quizzes | during the semester | individual, on web technologies and concepts |
 

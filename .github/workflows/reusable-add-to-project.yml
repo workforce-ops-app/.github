@@ -1,0 +1,34 @@
+# Reusable: adds a newly opened issue to the organization's combined project board.
+# The backend uses the board's built-in auto-add instead (the free plan allows one);
+# the frontend and this repository call this workflow (issue #99).
+name: add-to-project (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      project-url:
+        description: "URL of the organization project board"
+        type: string
+        default: https://github.com/orgs/workforce-ops-app/projects/4
+    secrets:
+      token:
+        description: "Token that can write to organization projects (GITHUB_TOKEN cannot)"
+        required: true
+
+# The job only talks to the project through the token above; it needs nothing from the repository.
+permissions: {}
+
+jobs:
+  add:
+    name: add issue to board
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # Skips post-merge review issues, matching the backend's auto-add filter
+      # (-label:post-merge-review); they are found by their label instead.
+      - uses: actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd # v2.0.0
+        with:
+          project-url: ${{ inputs.project-url }}
+          github-token: ${{ secrets.token }}
+          labeled: post-merge-review
+          label-operator: NOT

@@ -55,7 +55,7 @@ Promotion PRs (`main` → `production`) need only a `## Summary` listing the PRs
 ## Slices and tracker issues
 
 - **A slice** is one issue that becomes one pull request: one topic, small enough to review in one sitting, and at most one database migration.
-- **A tracker issue** groups the slices of a larger piece of work, such as a phase or a feature. It lists each slice as a checkbox with a link, says in which order they go and what depends on what, and is closed by hand once its last slice merges. Nobody works on a tracker directly, and no pull request closes one.
+- **A tracker issue** groups the slices of a larger piece of work, such as a phase or a feature. Each slice is added to it as a **sub-issue** (an issue has at most one parent), so GitHub shows the tracker's progress. The tracker's text says in which order the slices go; it is closed by hand once its last slice merges. Nobody works on a tracker directly, and no pull request closes one.
 - **Design before code:** the first slice of a feature is its design page (the backend feature page, plus a short frontend page for its screens). Code slices start once that page has merged.
 - **The overall plan** (phases, what each phase must prove before the next starts, and each phase's tracker) is the pinned **Roadmap** issue in this repository.
 
@@ -63,7 +63,7 @@ Promotion PRs (`main` → `production`) need only a `## Summary` listing the PRs
 
 Issues can be filed before the work they need has merged, as long as they say what they wait for. Nobody starts an issue until everything it depends on has merged.
 
-In the issue's *Related* section, one line per dependency:
+Record each dependency in two places: as a **blocking link** on the issue (the issue's sidebar, *Relationships*, "Blocked by"), which the board shows and which clears itself when the blocking issue closes, and in the issue's *Related* section, one line per dependency, so the reason is readable in the text:
 
 ```
 Depends on #29 (in review as #36)            ← must merge before work on this issue starts
@@ -86,7 +86,7 @@ Closes workforce-ops-app/workforce-ops-backend#3   ← same, in another reposito
 Refs #22                                     ← related but not finished: a tracker, the design sign-off, the other repository's twin issue
 ```
 
-Squash merges use the PR description as the commit message, so the keyword in the PR description is what closes the issue. When a slice merges, tick its box in the tracker.
+Squash merges use the PR description as the commit message, so the keyword in the PR description is what closes the issue. The tracker's progress updates by itself, since the slice is its sub-issue.
 
 ## Linking across repositories
 

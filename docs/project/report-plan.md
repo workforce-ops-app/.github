@@ -47,8 +47,13 @@ The course topics that apply to a web application are tested and discussed by na
 | Cross-site scripting | safe rendering, plain text plus bold announcements, Content Security Policy |
 | Cryptography | HMAC-signed audit chains; Argon2id password hashing |
 | Secure coding, defense mechanisms | layered tenant isolation, escalation rules, static analysis in CI |
+| Type safety | Pydantic request schemas checked at run time; mypy in CI |
+| Code injection | security lint rules forbid `eval`, `exec`, and `pickle` on untrusted data; SQL injection as above |
+| Integer overflow | every numeric input bounded to its database column; JavaScript's 2^53 limit; boundary tests (threat T6) |
+| Format string vulnerabilities | user text never used as a format template or log message; log line forging (threats I7, R3) |
+| Memory safety, buffer and heap overflow, return-oriented programming, ASLR, stack canaries | our code is in memory-safe languages; the compiled parts underneath (Python interpreter, nginx, native libraries) are kept updated and checked with `checksec` for ASLR, stack canaries, and non-executable memory (threat E10) |
 
-Low-level topics (buffer overflows, return-oriented programming, memory safety) do not apply to a Python and JavaScript application; the report says so in one sentence.
+Some low-level topics cannot occur in our own code: stack smashing, return-to-libc, and dangling pointers need manual memory management, which Python and JavaScript do not have. The report says so, and explains that choosing memory-safe languages is itself one of the defense mechanisms the course covers. The threat IDs above are in the backend [threat model](https://github.com/workforce-ops-app/workforce-ops-backend/blob/main/docs/security/threat-model.md).
 
 Each finding in the log records **tool → vulnerability → code fix → regression test**, which demonstrates the course outcomes directly (apply tools, spot vulnerabilities, mitigate by refining code).
 

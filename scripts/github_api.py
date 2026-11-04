@@ -48,3 +48,14 @@ def find_comment(repo: str, number: int, marker: str) -> dict | None:
         if marker in (comment.get("body") or ""):
             return comment
     return None
+
+
+def graphql(query: str, **variables: object) -> dict:
+    """Run a GraphQL query or mutation and return its `data`.
+
+    GitHub answers GraphQL errors with status 200, so they are checked here.
+    """
+    result = request("POST", "/graphql", {"query": query, "variables": variables}) or {}
+    if result.get("errors"):
+        raise RuntimeError("; ".join(error.get("message", str(error)) for error in result["errors"]))
+    return result["data"]

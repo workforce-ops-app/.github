@@ -44,10 +44,18 @@ Most work is already planned as slices listed in a tracker issue; the pinned **R
 
 One [project board](https://github.com/orgs/workforce-ops-app/projects/4) holds the issues of all three repositories, because each feature spans the backend and the frontend. Its columns are **Backlog → Ready → In progress → In review → Done**.
 - New issues are added to the board automatically and start in **Backlog**. Post-merge review issues are left off (the auto-add filters exclude `-label:post-merge-review`); find them by that label in the repository's issue list.
-- **Ready** means nothing blocks the issue any more, so anyone can pick it up. Blocking links show what an issue waits for ([issues that depend on other work](issues-and-prs.md#issues-that-depend-on-other-work)).
-- Assign yourself and move the card to **In progress** when you start the branch.
-- The card moves to **In review** when the PR is opened, and to **Done** when it merges and closes the issue.
-- Two extra fields: **Course** (Web, Security, or Both: which course the work counts for) and **Tier** (Final demo or Stretch, matching the milestones). Filter by Course to see what is left for the research report.
+- **The board keeps itself up to date.** Every 30 minutes the `sync-project` workflow in this repository sets each card's Status by these rules, first match wins:
+  - closed: **Done**
+  - an open pull request says `Closes` it: **In review**
+  - a branch named `<type>/<issue#>-<slug>` exists in the issue's own repository: **In progress**
+  - a person moved it to **In progress**: it stays there
+  - Stretch, or blocked by an open issue: **Backlog**
+  - otherwise: **Ready**, meaning anyone can pick it up. Blocking links show what an issue waits for ([issues that depend on other work](issues-and-prs.md#issues-that-depend-on-other-work)).
+- **Trackers** move with their sub-issues: **In progress** once any sub-issue is closed or underway, **Backlog** before that, **Done** when closed by hand.
+- **Assignees:** assign yourself when you start. When a pull request that closes an issue opens, the sync also assigns its author to the issue, so the board shows who did the work.
+- **Linked pull requests:** write `Closes #N` in the pull request; that is what links it to the card. A pull request that closes no issue gets one comment from the sync, removed once a `Closes` line is added.
+- **Still by hand:** the Course field on new issues, and **In progress** for a branch named after another repository's issue (the sync only matches numbers in the same repository). To update the board right away, run the workflow from the Actions tab.
+- Two extra fields: **Course** (Web, Security, or Both: which course the work counts for) and **Tier** (Final demo or Stretch, matching the milestones; the sync fills a missing Tier from the milestone). Filter by Course to see what is left for the research report.
 - Each tracker is a parent issue; its slices are **sub-issues**, so the card shows a progress bar. The pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) is the parent of the trackers.
 
 ## 3. Branch

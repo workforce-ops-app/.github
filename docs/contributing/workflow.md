@@ -42,12 +42,13 @@ Most work is already planned as slices listed in a tracker issue; the pinned **R
 
 ### Project board
 
-Each repository has its own project board in the organization ([backend](https://github.com/orgs/workforce-ops-app/projects/1), [frontend](https://github.com/orgs/workforce-ops-app/projects/2), [.github](https://github.com/orgs/workforce-ops-app/projects/3)), with the columns **Backlog → Ready → In progress → In review → Done**.
-- New issues are added to their repository's board automatically and start in **Backlog**. Post-merge review issues are left off the boards (the boards' auto-add filter excludes `-label:post-merge-review`); find them by that label in the repository's issue list.
-- **Ready** means the issue's dependencies have merged, so anyone can pick it up (the tracker issue says what depends on what).
+One [project board](https://github.com/orgs/workforce-ops-app/projects/4) holds the issues of all three repositories, because each feature spans the backend and the frontend. Its columns are **Backlog → Ready → In progress → In review → Done**.
+- New issues are added to the board automatically and start in **Backlog**. Post-merge review issues are left off (the auto-add filters exclude `-label:post-merge-review`); find them by that label in the repository's issue list.
+- **Ready** means nothing blocks the issue any more, so anyone can pick it up. Blocking links show what an issue waits for ([issues that depend on other work](issues-and-prs.md#issues-that-depend-on-other-work)).
 - Assign yourself and move the card to **In progress** when you start the branch.
 - The card moves to **In review** when the PR is opened, and to **Done** when it merges and closes the issue.
-- The pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) ties the three boards together: it shows the phases and links each phase's tracker issue.
+- Two extra fields: **Course** (Web, Security, or Both: which course the work counts for) and **Tier** (Final demo or Stretch, matching the milestones). Filter by Course to see what is left for the research report.
+- Each tracker is a parent issue; its slices are **sub-issues**, so the card shows a progress bar. The pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) is the parent of the trackers.
 
 ## 3. Branch
 

@@ -1,0 +1,42 @@
+# Keeps the combined project board in step with issues, branches, and pull requests in all
+# three repositories (issue #103). One run here covers the whole board, so the other
+# repositories need no workflow of their own. The rules are in scripts/sync_project.py.
+name: sync-project
+
+on:
+  schedule:
+    - cron: "*/30 * * * *" # every 30 minutes; GitHub may start scheduled runs a few minutes late
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Only print what would change"
+        type: boolean
+        default: false
+
+# Two runs at once would make the same changes twice; the newer one waits instead.
+concurrency:
+  group: sync-project
+  cancel-in-progress: false
+
+# Everything goes through ADD_TO_PROJECT_TOKEN (GITHUB_TOKEN cannot write to organization
+# projects or to the other repositories); the checkout is of this public repository.
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    name: sync board
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.13"
+      - name: Sync the board
+        run: python scripts/sync_project.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.ADD_TO_PROJECT_TOKEN }}
+          DRY_RUN: ${{ inputs.dry-run || 'false' }}

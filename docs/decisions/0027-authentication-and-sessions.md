@@ -19,7 +19,7 @@ Session hijacking and CSRF are course topics, and credential protection is a sec
   Companies may shorten both ([0025](0025-sensitive-actions-and-security-settings.md)).
 - **CSRF:** per-session token in `X-CSRF-Token`, plus SameSite and an Origin check.
 - **Lockouts:** 5 failures → 15 min, 10 → 30 min, 15+ → 1 h (maximum); reset after success or 24 h; admin unlock (audited); alerts on repeats; 20 sign-in attempts per minute per address; 300 requests per minute per session.
-- **Onboarding:** companies created by platform staff; admins create accounts and get a one-time setup link (48 h, single use); resets use the same mechanism; links stored as hashes; email delivery next tier (low priority).
+- **Onboarding:** companies created by platform staff (changed by [0038](0038-final-demo-scope.md): companies sign up themselves); admins create accounts and get a one-time setup link (48 h, single use); resets use the same mechanism; links stored as hashes; email delivery next tier (low priority).
 
 Background: the team's [design review sign-off](https://github.com/workforce-ops-app/.github/issues/17).
 

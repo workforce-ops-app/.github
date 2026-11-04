@@ -6,9 +6,9 @@
 
 | Tier | Features | Target |
 |---|---|---|
-| **Core** | sign-in and sessions; company structure, people, roles, and reporting lines; schedules; audit log entries; demo data | schedules and the security pieces they need at the midterm demo ([0036](../decisions/0036-midterm-scope-schedules.md)); the rest by the final demo |
+| **Core** | sign-in and sessions; company structure, people, roles, and reporting lines; schedules; time off; audit log entries; demo data | schedules and the security pieces they need at the midterm demo ([0036](../decisions/0036-midterm-scope-schedules.md)); the rest by the final demo |
 | **Next** | calendar-style department view; announcements; coverage and swaps; company sign-up and screens for each permission level; audit verification and viewer; security page and detection; backups | final demo ([0038](../decisions/0038-final-demo-scope.md)) |
-| **Stretch** | time off; changing your own name or email; company settings and logo; draft-and-publish schedules; shift tasks with photos; notifications; extra safeguards for sensitive actions, two-factor sign-in, email notifications, hosting, platform support access, and more | if time allows |
+| **Stretch** | changing your own name or email; company settings screen and logo; draft-and-publish schedules; shift tasks with photos; notifications; extra safeguards for sensitive actions, two-factor sign-in, email notifications, hosting, platform support access, and more | if time allows |
 
 Details: decisions [0023](../decisions/0023-feature-tiers-and-audit-schedule.md), [0036](../decisions/0036-midterm-scope-schedules.md), and [0038](../decisions/0038-final-demo-scope.md).
 

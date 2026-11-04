@@ -38,8 +38,8 @@ The features planned for each demo are recorded in decisions [0023](../decisions
 |---|---|
 | **Midterm** | schedules, on the security pieces it needs (sign-in, company isolation, roles with scopes, audit log), plus a practised presentation (0036) |
 | **Core** | the rest of the core tier that the final demo needs, after the midterm (0038) |
-| **Next** | working by the final demo: calendar-style department view, announcements, swaps and coverage, company sign-up and screens for each permission level, plus the security-report work (0038) |
-| **Stretch** | if time allows, including time off and the other features 0038 moved |
+| **Next** | working by the final demo: calendar-style department view, announcements, time off, swaps and coverage, company sign-up and screens for each permission level, plus the security-report work (0038) |
+| **Stretch** | if time allows, including the features 0038 moved |
 
 ## How we work
 

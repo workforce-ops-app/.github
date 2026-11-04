@@ -28,11 +28,11 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0020](0020-status-over-deletion.md) | Change status instead of deleting records | Accepted |
 | [0021](0021-time-handling.md) | Store moments in UTC, schedule in the workplace's time zone | Accepted |
 | [0022](0022-sqlalchemy-and-alembic.md) | SQLAlchemy 2.0 and Alembic for database access | Accepted |
-| [0023](0023-feature-tiers-and-audit-schedule.md) | Feature tiers and security audit schedule | Accepted; midterm scope narrowed by 0036 |
+| [0023](0023-feature-tiers-and-audit-schedule.md) | Feature tiers and security audit schedule | Accepted; midterm scope narrowed by 0036, final demo scope by 0038 |
 | [0024](0024-authorization-model.md) | Authorization model: permissions, reporting lines, and escalation rules | Accepted |
 | [0025](0025-sensitive-actions-and-security-settings.md) | Safeguards for sensitive actions and "stricter only" company security settings | Accepted |
 | [0026](0026-api-conventions.md) | API conventions | Accepted |
-| [0027](0027-authentication-and-sessions.md) | Authentication, sessions, and onboarding | Accepted |
+| [0027](0027-authentication-and-sessions.md) | Authentication, sessions, and onboarding | Accepted; company sign-up changed by 0038 |
 | [0028](0028-backup-and-recovery.md) | Backup and recovery | Accepted |
 | [0029](0029-request-approval-routing.md) | Request approval routing | Accepted |
 | [0030](0030-security-study-method.md) | Security study method | Accepted |
@@ -43,3 +43,4 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0036](0036-midterm-scope-schedules.md) | Midterm demo: schedules on the security pieces it needs | Accepted |
 | [0035](0035-logging-unexpected-errors.md) | Logging unexpected errors: an error ID and location, full details only in development | Accepted |
 | [0037](0037-pr-format-rules-warn.md) | PR format rules warn instead of failing CI | Accepted |
+| [0038](0038-final-demo-scope.md) | Final demo scope: four web features, the security study kept | Accepted |

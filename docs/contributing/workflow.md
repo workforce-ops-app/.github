@@ -42,7 +42,7 @@ Most work is already planned as slices listed in a tracker issue; the pinned **R
 
 ### Project board
 
-One [project board](https://github.com/orgs/workforce-ops-app/projects/4) holds the issues of all three repositories, because each feature spans the backend and the frontend. Its columns are **Backlog → Ready → In progress → In review → Done**.
+One [project board](https://github.com/orgs/workforce-ops-app/projects/4) holds the issues of all four repositories, because each feature spans the backend and the frontend. Its columns are **Backlog → Ready → In progress → In review → Done**.
 - New issues are added to the board automatically and start in **Backlog**. Post-merge review issues are left off (the auto-add filters exclude `-label:post-merge-review`); find them by that label in the repository's issue list.
 - **The board keeps itself up to date.** Every 30 minutes the `sync-project` workflow in this repository sets each card's Status by these rules, first match wins:
   - closed: **Done**

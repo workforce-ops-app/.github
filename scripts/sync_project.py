@@ -28,7 +28,7 @@ from workforce_ops_hooks import rules  # noqa: E402
 
 ORG = "workforce-ops-app"
 PROJECT_NUMBER = 4
-REPOS = (".github", "workforce-ops-backend", "workforce-ops-frontend")
+REPOS = (".github", "workforce-ops-backend", "workforce-ops-frontend", "workforce-ops-research")
 
 # Status column names, exactly as they appear on the board.
 BACKLOG, READY, IN_PROGRESS, IN_REVIEW, DONE = "Backlog", "Ready", "In progress", "In review", "Done"

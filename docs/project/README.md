@@ -25,7 +25,7 @@
 |---|---|---|
 | Project proposal | submitted | *Workforce Operations Manager* security proposal |
 | Final project report | end of semester (date to be announced) | IEEE conference format, **at most 10 pages**; see the [report plan](report-plan.md) |
-| Datasets and artifacts | with the report | every dataset and script used, submitted or linked by public URL |
+| Datasets and artifacts | with the report | every dataset and script used, published in the [workforce-ops-research](https://github.com/workforce-ops-app/workforce-ops-research) repository and linked by public URL |
 | Peer evaluations | about every two weeks | team members evaluate each other |
 
 Each team member submits their own copy of joint deliverables. Late work loses 10% per day and is not accepted after three days.
@@ -45,7 +45,7 @@ The features planned for each demo are recorded in decisions [0023](../decisions
 
 - **Split by feature, not by layer.** Each teammate owns features end to end (backend, frontend, docs, tests), working closely together, and reviews the other's pull requests. There is no expectation of an even split.
 - **Every change goes through a pull request** approved by the other teammate ([workflow](../contributing/workflow.md)).
-- **Work is tracked on one [project board](https://github.com/orgs/workforce-ops-app/projects/4)** for all three repositories, with the columns Backlog, Ready, In progress, In review, and Done, and a Course field (Web, Security, or Both) ([workflow](../contributing/workflow.md#project-board)).
+- **Work is tracked on one [project board](https://github.com/orgs/workforce-ops-app/projects/4)** for all four repositories, with the columns Backlog, Ready, In progress, In review, and Done, and a Course field (Web, Security, or Both) ([workflow](../contributing/workflow.md#project-board)).
 - **The plan is the pinned [Roadmap](https://github.com/workforce-ops-app/.github/issues/24) issue:** the phases from design to the final demo, what each phase must prove before the next starts, and a tracker issue for each phase and larger feature ([slices and trackers](../contributing/issues-and-prs.md#slices-and-tracker-issues)).
 
 ## Repositories

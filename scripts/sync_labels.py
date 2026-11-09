@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 ORG = "workforce-ops-app"
-REPOS = [".github", "workforce-ops-backend", "workforce-ops-frontend"]
+REPOS = [".github", "workforce-ops-backend", "workforce-ops-frontend", "workforce-ops-research"]
 LINE_RE = re.compile(
     r'^- \{name: "(?P<name>[^"]+)", color: "(?P<color>[0-9a-f]{6})", description: "(?P<desc>[^"]*)"\}$'
 )

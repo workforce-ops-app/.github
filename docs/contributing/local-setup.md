@@ -1,6 +1,6 @@
 # Local setup
 
-**In short:** clone all three repositories side by side into one folder, install the listed tools, and run `pre-commit install` in each clone. Then the same checks that run on pull requests also run on your machine.
+**In short:** clone all four repositories side by side into one folder, install the listed tools, and run `pre-commit install` in each clone. Then the same checks that run on pull requests also run on your machine.
 
 ## Tools
 
@@ -21,7 +21,8 @@ Clone the repositories next to each other. The CI runner is referenced by relati
 workforce-ops/                  any name
 ├── .github/                    git clone https://github.com/workforce-ops-app/.github
 ├── workforce-ops-backend/      git clone https://github.com/workforce-ops-app/workforce-ops-backend
-└── workforce-ops-frontend/     git clone https://github.com/workforce-ops-app/workforce-ops-frontend
+├── workforce-ops-frontend/     git clone https://github.com/workforce-ops-app/workforce-ops-frontend
+└── workforce-ops-research/     git clone https://github.com/workforce-ops-app/workforce-ops-research
 ```
 
 ## Git hooks

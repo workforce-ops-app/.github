@@ -6,6 +6,7 @@ A secure, multi-company web application for employee scheduling, time-off reques
 |---|---|
 | [workforce-ops-backend](https://github.com/workforce-ops-app/workforce-ops-backend) | FastAPI (Python 3.13) API with a MySQL 8.4 database |
 | [workforce-ops-frontend](https://github.com/workforce-ops-app/workforce-ops-frontend) | HTML, CSS, and JavaScript user interface |
+| [workforce-ops-research](https://github.com/workforce-ops-app/workforce-ops-research) | The security study's replication package: datasets, analysis scripts, results, and the report |
 | [.github](https://github.com/workforce-ops-app/.github) | Shared templates, CI, contributor guide, and decision records |
 
 **About the project:** see the [project overview](https://github.com/workforce-ops-app/.github/tree/main/docs/project), including the courses it serves and the research report plan. **Getting involved:** start with the [contributor guide](https://github.com/workforce-ops-app/.github/tree/main/docs/contributing). **Security issues:** see the [security policy](https://github.com/workforce-ops-app/.github/blob/main/SECURITY.md).

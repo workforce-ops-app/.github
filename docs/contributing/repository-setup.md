@@ -14,16 +14,16 @@
 
 ## 2. Repositories
 
-Create three **public** repositories with no license: `.github`, `workforce-ops-backend`, `workforce-ops-frontend`. For each:
+Create the **public** repositories with no license: `.github`, `workforce-ops-backend`, `workforce-ops-frontend`, and `workforce-ops-research` (the security study's replication package, added 2026-11-09, [decision 0030](../decisions/0030-security-study-method.md)). For each:
 
 1. Push the initial scaffold straight to `main` (the only direct push).
 2. **Settings → General → Pull Requests**
-   - Allow merge commits: **on** in the application repositories (used only for `main` → `production`); **off** in `.github`
+   - Allow merge commits: **on** in the application repositories (used only for `main` → `production`); **off** in `.github` and `workforce-ops-research`
    - Allow squash merging: **on**, default message **Pull request title and description**
    - Allow rebase merging: **off**
    - Always suggest updating pull request branches: **on**
    - **Automatically delete head branches: on**
-3. Application repositories only: create the `production` branch from `main`. The `.github` repository has no `production` branch, because other repositories use its workflows and hooks straight from `main` (and from tags).
+3. Application repositories only: create the `production` branch from `main`. The `.github` repository has no `production` branch, because other repositories use its workflows and hooks straight from `main` (and from tags). The research repository has none either, because nothing is deployed from it.
 4. **Settings → Code security**: turn on
    - Dependency graph, Dependabot alerts, Dependabot security updates
    - Secret scanning and **push protection**
@@ -85,4 +85,4 @@ The display name can change at any time. Changing the **URL name** (`workforce-o
 | `scripts/sync_labels.py` | `ORG` |
 | `.github/ISSUE_TEMPLATE/config.yml`, `SECURITY.md`, `CONTRIBUTING.md`, `profile/README.md`, docs | links |
 
-Search all three repositories for `workforce-ops-app` to find every occurrence.
+Search all four repositories for `workforce-ops-app` to find every occurrence.

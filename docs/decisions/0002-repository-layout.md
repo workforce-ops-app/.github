@@ -10,7 +10,7 @@ The backend and frontend live in separate repositories so their changes stay ind
 The team wants modular pull requests that rarely conflict. The two halves use different toolchains (Python and JavaScript) and can be reviewed separately. Shared process rules must not drift between repositories.
 
 ## Decision
-- A GitHub organization, `workforce-ops-app`, owns three public repositories: `workforce-ops-backend`, `workforce-ops-frontend`, and `.github`.
+- A GitHub organization, `workforce-ops-app`, owns three public repositories: `workforce-ops-backend`, `workforce-ops-frontend`, and `.github`. A fourth, `workforce-ops-research`, was added on 2026-11-09 for the security study's replication package ([0030](0030-security-study-method.md)); it uses the same shared CI and review rules.
 - GitHub uses the `.github` repository's issue templates, PR template, `CONTRIBUTING.md`, and `SECURITY.md` as defaults for every repository in the organization. The name must be exactly `.github` and the repository must be public.
 - CI logic lives in reusable workflows and scripts in `.github`; each application repository has short caller workflows and a `ci.toml`.
 - Both members are organization owners; a `maintainers` team owns review requests.

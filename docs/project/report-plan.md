@@ -5,6 +5,7 @@
 ## Format
 
 - IEEE conference proceedings template, **at most 10 pages**, PDF or Word.
+- **Written in LaTeX** with the official `IEEEtran` class, in the `report/` folder of the [workforce-ops-research](https://github.com/workforce-ops-app/workforce-ops-research) repository (agreed 2026-11-09). One file per section, so both teammates can edit at the same time; CI builds the PDF on every pull request and fails if it passes 10 pages.
 - File name: `DescriptivePhrase ProjReport.pdf`, e.g. `Secure Workforce Operations ProjReport.pdf`.
 - **Structured abstract:** Context, Goal, Method, Results, Conclusions (4 to 6 sentences).
 - Each team member submits their own copy.
@@ -74,6 +75,6 @@ Lessons from reviews of research papers in this field:
 - **Keep claims proportionate** to the evidence; avoid words like "substantially".
 - **Answer each research question exactly as asked**, with its limits stated.
 - **Motivate each research question.**
-- **Make it replicable:** publish datasets, scripts, and instructions in the research repository.
+- **Make it replicable:** publish datasets, scripts, and instructions in the [research repository](https://github.com/workforce-ops-app/workforce-ops-research).
 
 Before submission, each teammate writes a critique of the draft in the course's critique format (short summary, at least three strengths, at least three weaknesses), and the weaknesses are fixed.

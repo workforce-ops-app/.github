@@ -51,3 +51,4 @@
 - {name: "bypass:security-test", color: "ffa657", description: "Bypass security-test (needs justification + teammate approval)"}
 - {name: "bypass:build", color: "ffa657", description: "Bypass build (needs justification + teammate approval)"}
 - {name: "bypass:integration-test", color: "ffa657", description: "Bypass integration-test (needs justification + teammate approval)"}
+- {name: "bypass:report-build", color: "ffa657", description: "Bypass report-build (needs justification + teammate approval)"}

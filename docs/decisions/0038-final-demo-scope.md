@@ -1,7 +1,7 @@
 # 0038. Final demo scope: five web features, the security study kept
 
 - **Status:** Accepted
-- **Date:** 2026-11-04 (revised 2026-11-17: department calendar layout)
+- **Date:** 2026-11-04 (revised 2026-11-17: first the timeline layout, then the department calendar layout)
 
 ## In short
 The final demo of the web course shows five things: a calendar-style department view, announcements, time-off requests, shift swaps and coverage requests, and screens suited to each permission level, including companies signing up and setting up their own people and roles. The work the security report depends on stays planned. Every other next-tier and remaining core feature moves to stretch.

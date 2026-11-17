@@ -1,7 +1,7 @@
 # 0038. Final demo scope: five web features, the security study kept
 
 - **Status:** Accepted
-- **Date:** 2026-11-04
+- **Date:** 2026-11-04 (revised 2026-11-17: department calendar layout)
 
 ## In short
 The final demo of the web course shows five things: a calendar-style department view, announcements, time-off requests, shift swaps and coverage requests, and screens suited to each permission level, including companies signing up and setting up their own people and roles. The work the security report depends on stays planned. Every other next-tier and remaining core feature moves to stretch.
@@ -11,7 +11,7 @@ The final demo of the web course shows five things: a calendar-style department 
 
 ## Decision
 - **Web features for the final demo:**
-  - **Department view like a calendar:** times down the side, each shift drawn as a bar as long as the shift, people or days across.
+  - **Department view like a calendar:** a week calendar like Google Calendar's: the days across, the hours down, and each shift drawn as a block from its start to its end, in the person's own colour, with their name and any event or notes. A people menu on the left lists everyone in the week with their colour, grouped by their company roles (Owner, Administrator, Manager, company-added roles, Employee); clicking a name shows or hides their shifts, and a name search shows only people whose names contain every word typed, combined with those toggles. Phones show one day (three on wider screens) with the menu in a drawer. Everyone who can see the department's schedule sees the role groups, so employees learn their coworkers' role names, as a printed schedule would show who the managers are (layout agreed 2026-11-17; tracker #114).
   - **Announcements:** people who manage others post announcements to the people they manage, within the scope they manage (team, department, or company).
   - **Time-off requests:** employees ask for time off; their managers in the reporting chain approve or deny it; requests nobody reviews in time are declined automatically, so none get stuck; approved time off opens the employee's shifts ([0029](0029-request-approval-routing.md)). The number of approvals comes from company settings, which are stored with safe defaults (one approval); a screen to change them stays stretch.
   - **Shift swaps and coverage requests:** employees coordinate changes through the application, as set out in 0029: coworkers answer first, then the manager approves. They reuse the approval routing that time off builds first.
@@ -32,6 +32,8 @@ The final demo of the web course shows five things: a calendar-style department 
 - Issues for the moved features go to a **Stretch** milestone in each repository rather than being closed.
 
 ## Alternatives considered
+- **A timeline with one row per person** (the days across, each person's shifts as bars along their row; built first in workforce-ops-app/workforce-ops-frontend#77): shows each person's week at a glance, but labels are cramped in narrow bars, and it does not look like the calendars people already use. The calendar with a people menu keeps the per-person view through its filters.
+- **Role groups for managers only:** keeps role names from employees, but employees would get a different menu, and role names are not sensitive at work.
 - **Keep the full next tier:** not achievable in the weeks left alongside the audits and the report.
 - **Time off in stretch** (the first version of this decision, revised the same day): fewer slices, but coverage would have had to build the approval routing alone, and the demo would lack the path from approved time off to an open shift.
 - **Move the security-report work to stretch too:** the report would have no data for research question RQ1 and no recovery evidence.

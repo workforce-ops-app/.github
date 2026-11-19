@@ -16,7 +16,7 @@
 | Deliverable | When | What |
 |---|---|---|
 | Midterm presentation | midterm week (date to be announced) | live demo of the application's progress to the instructor and class |
-| Final presentation | final week (date to be announced) | live demo of the finished application |
+| Final presentation | final week (date to be announced) | live demo of the finished application; it must show AJAX (requested by the director): a background request that updates part of the page without reloading it, such as moving between weeks ([where to point in the code](https://github.com/workforce-ops-app/workforce-ops-frontend/blob/main/docs/architecture/session-and-navigation.md#moving-between-weeks)) |
 | Quizzes | during the semester | individual, on web technologies and concepts |
 
 ### CS 4416/5516: Foundations in Cybersecurity and Resilience

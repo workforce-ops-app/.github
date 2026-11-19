@@ -43,4 +43,5 @@ New records start from [`../templates/decision.md`](../templates/decision.md) an
 | [0036](0036-midterm-scope-schedules.md) | Midterm demo: schedules on the security pieces it needs | Accepted |
 | [0035](0035-logging-unexpected-errors.md) | Logging unexpected errors: an error ID and location, full details only in development | Accepted |
 | [0037](0037-pr-format-rules-warn.md) | PR format rules warn instead of failing CI | Accepted |
-| [0038](0038-final-demo-scope.md) | Final demo scope: five web features, the security study kept | Accepted |
+| [0038](0038-final-demo-scope.md) | Final demo scope: five web features, the security study kept | Accepted; four items moved to stretch by 0039 |
+| [0039](0039-final-target-and-cuts.md) | Finish the demo and the report by Dec 8, and move four items to stretch | Accepted |

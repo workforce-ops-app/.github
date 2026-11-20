@@ -36,7 +36,7 @@ Warnings (for example "no linked issue", "code changed but docs did not", or a t
 |---|---|---|
 | pr-policy | fails on: a PR from `review/*`, anything but `main` into `production`, a `Co-authored-by` trailer, a bypass label without justification. Warns on: title, branch name, template sections ([0037](../decisions/0037-pr-format-rules-warn.md)) | same |
 | secret-scan | gitleaks over the full history | same |
-| audit | pip-audit | npm audit (high and critical) |
+| audit | pip-audit | `scripts/audit.js`: npm audit, failing on high and critical advisories except those in `audit-allowlist.json` ([below](#accepting-an-advisory-with-no-fix)) |
 | format-check | ruff format | prettier |
 | lint | ruff (includes security rules) | eslint (includes the XSS rule), Biome for CSS, html-validate |
 | typecheck | mypy | tsc on JSDoc types |
@@ -102,6 +102,29 @@ Bypasses are **strongly discouraged** and are for cases like a broken third-part
 3. The teammate's approval covers the bypass. They should comment that they agree.
 
 The operation still runs. The report shows ⚠️ and the overall check can pass. `pr-policy` and `secret-scan` cannot be bypassed.
+
+## Accepting an advisory with no fix
+
+Sometimes the audit reports an advisory that no update can fix yet: the affected package has no patched release. A bypass label would turn the whole audit off for one PR and does nothing for `main`, so the frontend lists such advisories in `audit-allowlist.json` instead. The audit then accepts that one advisory and still fails on everything else.
+
+Use it only when there is no fixed release and the vulnerable code cannot be reached by untrusted input (for example, it runs only in the test tools). Each entry is one exact advisory, and every field is required:
+
+```json
+{
+  "id": "GHSA-xxxx-xxxx-xxxx",
+  "package": "picomatch",
+  "reason": "why it is safe to accept for now",
+  "issue": "#81",
+  "expires": "2026-12-17"
+}
+```
+
+- `id` is the advisory, never a package name or a severity.
+- `issue` is the issue that ends the exception: update the dependency and remove the entry once a fix ships.
+- `expires` is at most 30 days ahead. On the day after, the audit fails again; renew it only with a new reason.
+- The teammate reviews every change to the list, like any other code.
+
+The audit prints each accepted advisory, and says when an entry is no longer needed.
 
 ## Emergency merges
 

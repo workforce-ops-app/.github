@@ -54,7 +54,7 @@ Testing is one layer. Each layer finds things the others miss:
 | **Abuse-case tests** | what an attacker could do, checked on every change | `tests/security/`, named after threat IDs |
 | **Coverage** | code no test has touched yet | the CI report and `--cov-report=term` |
 | **Static analysis** | dangerous patterns without running the code (SQL built from strings, `innerHTML` with data, hardcoded secrets) | ruff's security rules, ESLint's `no-unsanitized`, CodeQL |
-| **Dependency audit** | known vulnerabilities in libraries | pip-audit and npm audit in CI; Dependabot |
+| **Dependency audit** | known vulnerabilities in libraries | pip-audit and npm audit in CI (the frontend accepts listed advisories with no fix, each with a reason and an expiry: [CI](ci.md#accepting-an-advisory-with-no-fix)); Dependabot |
 | **Review** | logic flaws tools cannot see, such as a check in the wrong place | every pull request ([workflow](workflow.md)) |
 | **Active testing** | what an attacker can do against the running application | the audits with OWASP ZAP, sqlmap, and Burp Suite ([decision 0030](../decisions/0030-security-study-method.md)) |
 
